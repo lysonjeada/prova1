@@ -5,6 +5,7 @@ public class Empresa {
     private String cnpj;
     private Endereco endereco;                                                                                                                                                                                                                                                                                                                                                                                                                            
     
+    // criando o objeto empresa
     public Empresa () {
     	
     }
