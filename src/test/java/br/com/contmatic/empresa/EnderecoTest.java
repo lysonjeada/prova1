@@ -18,7 +18,7 @@ public class EnderecoTest {
 	}	
 	@AfterClass 
 	public static void after () {
-		System.out.println("Termin ando os testes");
+		System.out.println("Terminando os testes");
 	}
 	
 	
@@ -38,6 +38,28 @@ public class EnderecoTest {
 		assertEquals("1234", endereco.getNumero());
 		assertEquals("Brasil", endereco.getPais());
 		assertEquals("Rua Berto Conde", endereco.getRua());
+		
+		Empresa empresa2 = new Empresa();
+		Endereco endereco2 = new Endereco ();
+		endereco2.setCep("54321");
+		endereco2.setCidade("Rio de Janeiro");
+		endereco2.setNumero("7654321");
+		endereco2.setPais("Brasil");
+		endereco2.setRua("Rua Antonio da Costa");
+		empresa2.setEndereco(endereco);
+		
+		assertEquals("Rio de Janeiro", endereco2.getCidade());
+		assertEquals("7654321", endereco2.getNumero());
+		assertEquals("Brasil", endereco2.getPais());
+		assertEquals("Rua Antonio da Costa", endereco2.getRua());
+		
+		System.out.println((endereco.toString()));
+		System.out.println((endereco2.toString()));
+		
+		boolean retorna = endereco.hashCode() == endereco2.hashCode();
+		System.out.println(retorna);
+		
+		System.out.println(endereco.equals(endereco2));
 		
 	}
 
