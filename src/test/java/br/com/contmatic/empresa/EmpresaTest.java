@@ -1,7 +1,10 @@
 package br.com.contmatic.empresa;
 
+import static org.hamcrest.CoreMatchers.hasItem;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,12 +12,14 @@ import org.junit.Test;
 public class EmpresaTest {
 
 	@Before 
-	
+	public final void setUp() {  }
 	@After 
+    public final void tearDown() { }
+
 	
 	
 	@Test (timeout = 500)
-	public void test() {
+	public void testandoNovaEmpresa() {
 		Empresa empresa = new Empresa();
 		empresa.setCnpj("1234567");
 		empresa.setNome("Contmatic");
@@ -36,6 +41,22 @@ public class EmpresaTest {
 		System.out.println(retorna);
 		
 		System.out.println(empresa.equals(empresa2));
+		
+		assertThat(empresa, empresa2);
+		
+		try
+		{
+			String novoCnpj = empresa.getCnpj().toUpperCase();
+			
+		}
+		catch (NullPointerException e)
+		{
+			System.out.println("O cpf está nulo.");
+			String novoCnpj = empresa.getCnpj().toUpperCase();
+			
+		}
+		
+		
 		
 	}
 }
