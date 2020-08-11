@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class EmpresaTest {
 
-	@Test (timeout = 100)
+	@Test (timeout = 500)
 	public void test() {
 		Empresa empresa = new Empresa();
 		empresa.setCnpj("1234567");
