@@ -1,10 +1,9 @@
 package br.com.contmatic.empresa;
 
-import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,21 +41,26 @@ public class EmpresaTest {
 		
 		System.out.println(empresa.equals(empresa2));
 		
-		assertThat(empresa, empresa2);
+		assertThat(empresa.getCnpj(),containsString("7654321"));
 		
-		try
-		{
-			String novoCnpj = empresa.getCnpj().toUpperCase();
-			
-		}
-		catch (NullPointerException e)
-		{
-			System.out.println("O cpf está nulo.");
-			String novoCnpj = empresa.getCnpj().toUpperCase();
-			
-		}
-		
-		
+//		try
+//		{
+//			String novoCnpj = empresa.getCnpj().toUpperCase();
+//			
+//		}
+//		catch (NullPointerException e)
+//		{
+//			System.out.println("O cpf está nulo.");
+//			String novoCnpj = empresa.getCnpj().toUpperCase();
+//			
+//		}
 		
 	}
+	
+	@Test (expected = NullPointerException.class)
+	public void deveAcontecerNullPointer () {
+		Empresa empresa = null;
+		empresa.setCnpj("12324");
+	}
+	
 }
