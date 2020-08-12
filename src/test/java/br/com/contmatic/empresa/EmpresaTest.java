@@ -14,8 +14,6 @@ public class EmpresaTest {
 	public final void setUp() {  }
 	@After 
     public final void tearDown() { }
-
-	
 	
 	@Test (timeout = 500)
 	public void testandoNovaEmpresa() {

@@ -42,9 +42,8 @@ public class EnderecoTest {
 		
 		System.out.println((endereco.toString()));
 		
-		
-	
 		}
+	
 	Object testaEndereco = endereco;
 	private Object endereco2;
 	@Test
@@ -65,6 +64,7 @@ public class EnderecoTest {
 		System.out.println((endereco2.toString()));
 		
 	}
+	
 	Object testaEndereco2 = endereco2;
 	@Test 
 	public void deveTestarOsDoisEnderecos () {

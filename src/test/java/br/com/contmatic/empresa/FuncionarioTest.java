@@ -22,7 +22,6 @@ public class FuncionarioTest {
 		boolean retorna = funcionario.hashCode() == funcionario2.hashCode();
 		System.out.println(retorna);
 		
-		
 		funcionario.setNome("Raimundo");
 		funcionario.setIdade("19");
 		
