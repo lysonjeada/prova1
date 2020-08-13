@@ -25,7 +25,7 @@ public class EnderecoTest {
 	
 
 	@Test
-	public void deveTestarUmEndereco() {
+	public void deve_Testar_Um_Endereco() {
 		Empresa empresa = new Empresa();
 		Endereco endereco = new Endereco ();
 		endereco.setCep("12345");
@@ -47,7 +47,7 @@ public class EnderecoTest {
 	Object testaEndereco = endereco;
 	private Object endereco2;
 	@Test
-	public void deveTestarUmEndereco2 () {
+	public void deve_Testar_Um_Endereco2 () {
 		Empresa empresa2 = new Empresa();
 		Endereco endereco2 = new Endereco ();
 		endereco2.setCep("54321");

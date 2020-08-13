@@ -11,12 +11,14 @@ import org.junit.Test;
 public class EmpresaTest {
 
 	@Before 
-	public final void setUp() {  }
+	public final void setUp() { 
+		
+	}
 	@After 
     public final void tearDown() { }
 	
 	@Test (timeout = 500)
-	public void testandoNovaEmpresa() {
+	public void deve_Testar_Nova_Empresa() {
 		Empresa empresa = new Empresa();
 		empresa.setCnpj("1234567");
 		empresa.setNome("Contmatic");
@@ -56,7 +58,7 @@ public class EmpresaTest {
 	}
 	
 	@Test (expected = NullPointerException.class)
-	public void deveAcontecerNullPointer () {
+	public void deve_Acontecer_NullPointer () {
 		Empresa empresa = null;
 		empresa.setCnpj("12324");
 	}
