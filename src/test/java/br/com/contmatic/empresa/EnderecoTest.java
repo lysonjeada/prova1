@@ -20,52 +20,94 @@ public class EnderecoTest {
 	public static void after () {
 		System.out.println("Terminando os testes");
 	}
-	private Object endereco;
-	
-	
 
+	Empresa empresa = new Empresa();
 	@Test
-	public void deve_Testar_Um_Endereco() {
-		Empresa empresa = new Empresa();
+	public void deve_Testar_Um_Endereco_Cep() {
 		Endereco endereco = new Endereco ();
 		endereco.setCep("12345");
-		endereco.setCidade("Sao Paulo");
-		endereco.setNumero("1234");
-		endereco.setPais("Brasil");
-		endereco.setRua("Rua Berto Conde");
-		empresa.setEndereco(endereco);
-		
-		assertEquals("Sao Paulo", endereco.getCidade());
-		assertEquals("1234", endereco.getNumero());
-		assertEquals("Brasil", endereco.getPais());
-		assertEquals("Rua Berto Conde", endereco.getRua());
-		
-		System.out.println((endereco.toString()));
-		
-		}
-	
-	Object testaEndereco = endereco;
-	private Object endereco2;
-	@Test
-	public void deve_Testar_Um_Endereco2 () {
-		Empresa empresa2 = new Empresa();
-		Endereco endereco2 = new Endereco ();
-		endereco2.setCep("54321");
-		endereco2.setCidade("Rio de Janeiro");
-		endereco2.setNumero("7654321");
-		endereco2.setPais("Brasil");
-		endereco2.setRua("Rua Antonio da Costa");
-		empresa2.setEndereco(endereco2);
-		
-		assertEquals("Rio de Janeiro", endereco2.getCidade());
-		assertEquals("7654321", endereco2.getNumero());
-		assertEquals("Brasil", endereco2.getPais());
-		assertEquals("Rua Antonio da Costa", endereco2.getRua());
-		System.out.println((endereco2.toString()));
+		assertEquals("12345", endereco.getCep());	
 		
 	}
+	@Test 
+	public void deve_Testar_Um_Endereco_Cidade() {
+		Endereco endereco = new Endereco ();
+		endereco.setCidade("Sao Paulo");
+		assertEquals("Sao Paulo", endereco.getCidade());
+	}
+	@Test 
+	public void deve_Testar_Um_Endereco_Rua() {
+		Endereco endereco = new Endereco ();
+		endereco.setRua("Rua Berto Conde");
+		assertEquals("Rua Berto Conde", endereco.getRua());
+		
+	}
+	@Test 
+	public void deve_Testar_Um_Endereco_Numero() {
+		Endereco endereco = new Endereco ();
+		endereco.setNumero("1234");
+		assertEquals("1234", endereco.getNumero());
+	}
+	@Test 
+	public void deve_Testar_Um_Endereco_Pais() {
+	Endereco endereco = new Endereco (); 
+	endereco.setPais("Brasil");
+	assertEquals("Brasil", endereco.getPais());
 	
-	Object testaEndereco2 = endereco2;
+	}
+	Empresa empresa2 = new Empresa();
+	@Test
+	public void deve_Testar_Um_Endereco2_Cep() {
+		Endereco endereco = new Endereco ();
+		endereco.setCep("12345");
+		assertEquals("12345", endereco.getCep());	
+		
+	}
+	@Test 
+	public void deve_Testar_Um_Endereco2_Cidade() {
+		Endereco endereco = new Endereco ();
+		endereco.setCidade("Sao Paulo");
+		assertEquals("Sao Paulo", endereco.getCidade());
+	}
+	@Test 
+	public void deve_Testar_Um_Endereco2_Rua() {
+		Endereco endereco = new Endereco ();
+		endereco.setRua("Rua Berto Conde");
+		assertEquals("Rua Berto Conde", endereco.getRua());
+		
+	}
+	@Test 
+	public void deve_Testar_Um_Endereco2_Numero() {
+		Endereco endereco = new Endereco ();
+		endereco.setNumero("1234");
+		assertEquals("1234", endereco.getNumero());
+	}
+	@Test 
+	public void deve_Testar_Um_Endereco2_Pais() {
+	Endereco endereco = new Endereco (); 
+	endereco.setPais("Brasil");
+	assertEquals("Brasil", endereco.getPais());
+	
+	}
+//	@Test
+//	public void deve_Testar_Um_Endereco2 () {
+//		Empresa empresa2 = new Empresa();
+//		Endereco endereco2 = new Endereco ();
+//		endereco2.setCep("54321");
+//		endereco2.setCidade("Rio de Janeiro");
+//		endereco2.setNumero("7654321");
+//		endereco2.setPais("Brasil");
+//		endereco2.setRua("Rua Antonio da Costa");
+//		empresa2.setEndereco(endereco2);
+//		
+//		assertEquals("Rio de Janeiro", endereco2.getCidade());
+//		assertEquals("7654321", endereco2.getNumero());
+//		assertEquals("Brasil", endereco2.getPais());
+//		assertEquals("Rua Antonio da Costa", endereco2.getRua());
+//		System.out.println((endereco2.toString()));
+//		
+//	}
+	
 	@Test 
 	public void deveTestarOsDoisEnderecos () {
 

@@ -10,57 +10,64 @@ import org.junit.Test;
 
 public class EmpresaTest {
 
-	@Before 
-	public final void setUp() { 
-		
+	@Before
+	public final void setUp() {
+		Empresa empresa = new Empresa ();
 	}
-	@After 
-    public final void tearDown() { }
-	
-	@Test (timeout = 500)
-	public void deve_Testar_Nova_Empresa() {
+
+	@After
+	public final void tearDown() {
+		Empresa empresa = null;
+	}
+
+	@Test(timeout = 500)
+	public void deve_Testar_Nova_Empresa_Nome() {
+		Empresa empresa = new Empresa();
+		empresa.setNome("Contmatic");
+		assertEquals("Contmatic", empresa.getNome());		
+
+	}
+
+	@Test(timeout = 500)
+	public void deve_Testar_Nova_Empresa_Cnpj() {
 		Empresa empresa = new Empresa();
 		empresa.setCnpj("1234567");
-		empresa.setNome("Contmatic");
-		
 		assertEquals("1234567", empresa.getCnpj());
-		assertEquals("Contmatic", empresa.getNome());
-		
-		Empresa empresa2 = new Empresa ();
-		empresa2.setCnpj("7654321");
-		empresa2.setNome("Berinjela Grelhada");
-		
-		assertEquals("7654321", empresa2.getCnpj());
-		assertEquals("Berinjela Grelhada", empresa2.getNome());
-		
-		System.out.println((empresa.toString()));
-		System.out.println((empresa2.toString()));
-		
-		boolean retorna = empresa.hashCode() == empresa2.hashCode();
-		System.out.println(retorna);
-		
-		System.out.println(empresa.equals(empresa2));
-		
-		assertThat(empresa.getCnpj(),containsString("7654321"));
-		
-//		try
-//		{
-//			String novoCnpj = empresa.getCnpj().toUpperCase();
-//			
-//		}
-//		catch (NullPointerException e)
-//		{
-//			System.out.println("O cpf está nulo.");
-//			String novoCnpj = empresa.getCnpj().toUpperCase();
-//			
-//		}
-		
 	}
-	
-	@Test (expected = NullPointerException.class)
-	public void deve_Acontecer_NullPointer () {
+
+	@Test(timeout = 500)
+	public void deve_Testar_Nova_Empresa_Quantidade_De_Funcionarios() {
+		Empresa empresa = new Empresa();
+		empresa.setQuantidadeDeFuncionarios("1234567");
+		assertEquals("1234567", empresa.getQuantidadeDeFuncionarios());
+	}
+
+	@Test(timeout = 500)
+	public void deve_Testar_Nova_Empresa_Tipo() {
+		Empresa empresa = new Empresa();
+		empresa.setTipoDeEmpresa("1234567");
+		assertEquals("1234567", empresa.getTipoDeEmpresa());
+	}
+
+	@Test(timeout = 500)
+	public void deve_Testar_Nova_Empresa_Porte() {
+		Empresa empresa = new Empresa();
+		empresa.setPorteDaEmpresa("1234567");
+		assertEquals("1234567", empresa.getPorteDaEmpresa());
+	}
+
+	@Test(expected = NullPointerException.class)
+	public void deve_Acontecer_NullPointer() {
 		Empresa empresa = null;
 		empresa.setCnpj("12324");
 	}
-	
+	System.out.println((empresa.toString()));
+	System.out.println((empresa2.toString()));
+
+	boolean retorna = empresa.hashCode() == empresa2.hashCode();
+
+	equals(empresa.equals(empresa2));
+
+	assertThat(empresa.getCnpj(), containsString("7654321"));
+
 }

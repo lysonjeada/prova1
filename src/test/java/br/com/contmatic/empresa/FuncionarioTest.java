@@ -34,6 +34,6 @@ public class FuncionarioTest {
         Funcionario funcionario = new Funcionario ();
         funcionario.setOndeTrabalha("Contmatic");;
 
-        assertThat(funcionario.getOndeTrabalha(), is("Contmatic"));
+        assertThat(funcionario.getCargo(), is("Contmatic"));
     }
 }

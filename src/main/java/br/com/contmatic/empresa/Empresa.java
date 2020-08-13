@@ -7,6 +7,15 @@ public class Empresa {
 	private Endereco endereco;
 	private String quantidadeDeFuncionarios;
 	private String tipoDeEmpresa;
+	private String porteDaEmpresa;
+
+	public String getPorteDaEmpresa() {
+		return porteDaEmpresa;
+	}
+
+	public void setPorteDaEmpresa(String porteDaEmpresa) {
+		this.porteDaEmpresa = porteDaEmpresa;
+	}
 
 	public String getQuantidadeDeFuncionarios() {
 		return quantidadeDeFuncionarios;
@@ -24,15 +33,6 @@ public class Empresa {
 		this.tipoDeEmpresa = tipoDeEmpresa;
 	}
 
-	public Empresa(String string, String string2, Object object, String string4, String string5) {
-
-	}
-
-	public Empresa(String cnpj, String nome, Endereco endereco) {
-		this.cnpj = cnpj;
-		this.nome = nome;
-		this.endereco = endereco;
-	}
 
 	public String getNome() {
 		return nome;
