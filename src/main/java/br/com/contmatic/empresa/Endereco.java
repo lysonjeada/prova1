@@ -2,11 +2,11 @@ package br.com.contmatic.empresa;
 
 public class Endereco {
 
-	private String rua;
+	private String logradouro; 
 	private String numero;
 	private String cidade;
 	private String pais;
-	private String cep;
+	private String cep; 
 
 
 	public String getCep() {
@@ -17,12 +17,12 @@ public class Endereco {
 		this.cep = cep;
 	}
 
-	public String getRua() {
-		return rua;
+	public String getLogradouro() {
+		return logradouro;
 	}
 
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
 	}
 
 	public String getNumero() {
@@ -48,11 +48,13 @@ public class Endereco {
 	public void setPais(String pais) {
 		this.pais = pais;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cep == null) ? 0 : cep.hashCode());
+		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
 		return result;
 	}
 
@@ -69,6 +71,11 @@ public class Endereco {
 			if (other.cep != null)
 				return false;
 		} else if (!cep.equals(other.cep))
+			return false;
+		if (numero == null) {
+			if (other.numero != null)
+				return false;
+		} else if (!numero.equals(other.numero))
 			return false;
 		return true;
 	}

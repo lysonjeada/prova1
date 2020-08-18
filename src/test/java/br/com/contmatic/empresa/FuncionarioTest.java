@@ -12,64 +12,64 @@ public class FuncionarioTest {
 	
 	private Funcionario funcionario;
 	@Test
-	public void deve_Testar_Funcionario_Nome() {
+	public void deve_testar_Nome() {
 		Funcionario funcionario = new Funcionario ();
 		funcionario.setNome("Raimundo");
 		assertEquals("Raimundo", funcionario.getNome());
 	}
 	@Test
-	public void deve_Testar_Funcionario_Idade() {
+	public void deve_testar_Idade() {
 		Funcionario funcionario = new Funcionario ();
 		funcionario.setIdade("22");
 		assertEquals("22", funcionario.getIdade());
 		
 	}
 	@Test
-	public void deve_Testar_Funcionario_Cpf() {
+	public void deve_testar_Cpf() {
 		Funcionario funcionario = new Funcionario ();
 		funcionario.setCpf("654321");
 		assertEquals("654321", funcionario.getCpf());
 	}
 	@Test
-	public void deve_Testar_Funcionario_Cargo() {
+	public void deve_testar_Cargo() {
 		Funcionario funcionario = new Funcionario ();
 		funcionario.setCargo("Analista");
 		assertEquals("Analista", funcionario.getCargo());
 	}
 	@Test
-	public void deve_Testar_Funcionario_TempoNaEmpresa() {
+	public void deve_testar_TempoNaEmpresa() {
 		Funcionario funcionario = new Funcionario ();
 		funcionario.setTempoNaEmpresa("3 anos");
 		assertEquals("3 anos", funcionario.getTempoNaEmpresa());
 	}
 	private Funcionario funcionario2;
 	@Test
-	public void deve_Testar_Funcionario2_Nome() {
+	public void deve_testar_nome2() {
 		Funcionario funcionario2 = new Funcionario ();
 		funcionario2.setNome("Maria");
 		assertEquals("Maria", funcionario2.getNome());
 	}
 	@Test
-	public void deve_Testar_Funcionario2_Idade() {
+	public void deve_testar_idade2() {
 		Funcionario funcionario2 = new Funcionario ();
 		funcionario2.setIdade("20");
 		assertEquals("20", funcionario2.getIdade());
 		
 	}
 	@Test
-	public void deve_Testar_Funcionario2_Cpf() {
+	public void deve_testar_cpf2() {
 		Funcionario funcionario2 = new Funcionario ();
 		funcionario2.setCpf("1234567");
 		assertEquals("1234567", funcionario2.getCpf());
 	}
 	@Test
-	public void deve_Testar_Funcionario2_Cargo() {
+	public void deve_testar_cargo2() {
 		Funcionario funcionario2 = new Funcionario ();
 		funcionario2.setCargo("Estagiária");
 		assertEquals("Estagiária", funcionario2.getCargo());
 	}
 	@Test
-	public void deve_Testar_Funcionario2_TempoNaEmpresa() {
+	public void deve_testar_TempoNaEmpresa2() {
 		Funcionario funcionario2 = new Funcionario ();
 		funcionario2.setTempoNaEmpresa("1 ano");
 		assertEquals("1 ano", funcionario2.getTempoNaEmpresa());
@@ -79,52 +79,22 @@ public class FuncionarioTest {
 
 	@Ignore ("Teste desnecessário")
     @Test
-    public void deve_Atribuir_OndeTrabalha () {
+    public void deve_atribuir_ondetrabalha () {
         Funcionario funcionario = new Funcionario ();
         funcionario.setOndeTrabalha("Contmatic");;
 
         assertThat(funcionario.getCargo(), is("Contmatic"));
     }
-	public Funcionario getFuncionario() {
-		return funcionario;
-	}
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
-	public Funcionario getFuncionario2() {
-		return funcionario2;
-	}
-	public void setFuncionario2(Funcionario funcionario2) {
-		this.funcionario2 = funcionario2;
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((funcionario == null) ? 0 : funcionario.hashCode());
-		result = prime * result + ((funcionario2 == null) ? 0 : funcionario2.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		FuncionarioTest other = (FuncionarioTest) obj;
-		if (funcionario == null) {
-			if (other.funcionario != null)
-				return false;
-		} else if (!funcionario.equals(other.funcionario))
-			return false;
-		if (funcionario2 == null) {
-			if (other.funcionario2 != null)
-				return false;
-		} else if (!funcionario2.equals(other.funcionario2))
-			return false;
-		return true;
+
+	@Test 
+	public void deve_testar_cpf () {
+		Funcionario funcionario = new Funcionario ();
+		funcionario.setCpf("654321");
+		Funcionario funcionario1 = new Funcionario ();
+		funcionario.setCpf("654321");
+		assertThat(funcionario.equals(funcionario1), is (true));
+		
+		
 	}
 	
 }

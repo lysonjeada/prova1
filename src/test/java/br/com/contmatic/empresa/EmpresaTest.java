@@ -22,14 +22,14 @@ public class EmpresaTest {
 	
 
 	@Test(timeout = 500)
-	public void deve_Testar_Nova_Empresa_Nome() {
+	public void deve_atribuir_nome_corretamente() {
 		Empresa empresa = new Empresa();
 		empresa.setNome("Contmatic");
 		assertEquals("Contmatic", empresa.getNome());
 
 	}
 
-	@Test(timeout = 500)
+	@Test(timeout = 500) // tirar timeout tirar maisuculo e nova
 	public void deve_Testar_Nova_Empresa_Cnpj() {
 		Empresa empresa = new Empresa();
 		empresa.setCnpj("1234567");
@@ -39,8 +39,8 @@ public class EmpresaTest {
 	@Test(timeout = 500)
 	public void deve_Testar_Nova_Empresa_Quantidade_De_Funcionarios() {
 		Empresa empresa = new Empresa();
-		empresa.setQuantidadeDeFuncionarios("1234567");
-		assertEquals("1234567", empresa.getQuantidadeDeFuncionarios());
+		empresa.setListaDeFuncionarios("1234567");
+		assertEquals("1234567", empresa.getListaDeFuncionarios());
 	}
 
 	@Test(timeout = 500)
@@ -77,8 +77,8 @@ public class EmpresaTest {
 	@Test(timeout = 500)
 	public void deve_Testar_Nova_Empresa2_Quantidade_De_Funcionarios() {
 		Empresa empresa2 = new Empresa();
-		empresa2.setQuantidadeDeFuncionarios("1234567");
-		assertEquals("1234567", empresa2.getQuantidadeDeFuncionarios());
+		empresa2.setListaDeFuncionarios("1234567");
+		assertEquals("1234567", empresa2.getListaDeFuncionarios());
 	}
 
 	@Test(timeout = 500)

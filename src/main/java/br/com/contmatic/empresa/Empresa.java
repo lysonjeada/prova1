@@ -1,14 +1,20 @@
 package br.com.contmatic.empresa;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Empresa {
 
 	private String nome;
 	private String cnpj;
 	private Endereco endereco;
-	private String quantidadeDeFuncionarios;
-	private String tipoDeEmpresa;
+	private String listaDeFuncionarios; // lista de funcionário 
+	private String tipoDeEmpresa; // enum
 	private String porteDaEmpresa;
 
+	List<ListaDeFuncionarios> lista_DeFuncionarios = new ArrayList<ListaDeFuncionarios>();
+	
+	
 	public String getPorteDaEmpresa() {
 		return porteDaEmpresa;
 	}
@@ -17,12 +23,12 @@ public class Empresa {
 		this.porteDaEmpresa = porteDaEmpresa;
 	}
 
-	public String getQuantidadeDeFuncionarios() {
-		return quantidadeDeFuncionarios;
+	public String getListaDeFuncionarios() {
+		return listaDeFuncionarios;
 	}
 
-	public void setQuantidadeDeFuncionarios(String quantidadeDeFuncionarios) {
-		this.quantidadeDeFuncionarios = quantidadeDeFuncionarios;
+	public void setListaDeFuncionarios(String listaDeFuncionarios) {
+		this.listaDeFuncionarios = listaDeFuncionarios;
 	}
 
 	public String getTipoDeEmpresa() {

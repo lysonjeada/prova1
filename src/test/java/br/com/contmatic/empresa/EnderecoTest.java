@@ -11,19 +11,22 @@ import org.junit.runners.MethodSorters;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EnderecoTest {
 
+	private Empresa empresa;
+	// 
+	
 	@BeforeClass
 	public static void before() {
-		
+		System.out.println("Iniciando os testes");
 	}
 
 	@AfterClass
 	public static void after() {
-		
+		System.out.println(" Terminando os testes");
 	}
 
 	private Endereco endereco;
 
-	Empresa empresa = new Empresa();
+	
 
 	@Test
 	public void deve_Testar_Um_Endereco_Cep() {
@@ -43,8 +46,8 @@ public class EnderecoTest {
 	@Test
 	public void deve_Testar_Um_Endereco_Rua() {
 		Endereco endereco = new Endereco();
-		endereco.setRua("Rua Berto Conde");
-		assertEquals("Rua Berto Conde", endereco.getRua());
+		endereco.setLogradouro("Rua Berto Conde");
+		assertEquals("Rua Berto Conde", endereco.getLogradouro());
 
 	}
 
@@ -84,8 +87,8 @@ public class EnderecoTest {
 	@Test
 	public void deve_Testar_Um_Endereco2_Rua() {
 		Endereco endereco2 = new Endereco();
-		endereco2.setRua("Rua Berto Conde");
-		assertEquals("Rua Berto Conde", endereco2.getRua());
+		endereco2.setLogradouro("Rua Berto Conde");
+		assertEquals("Rua Berto Conde", endereco2.getLogradouro());
 
 	}
 
@@ -102,52 +105,6 @@ public class EnderecoTest {
 		endereco2.setPais("Brasil");
 		assertEquals("Brasil", endereco2.getPais());
 
-	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public Endereco getEndereco2() {
-		return endereco2;
-	}
-
-	public void setEndereco2(Endereco endereco2) {
-		this.endereco2 = endereco2;
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((endereco == null) ? 0 : endereco.hashCode());
-		result = prime * result + ((endereco2 == null) ? 0 : endereco2.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		EnderecoTest other = (EnderecoTest) obj;
-		if (endereco == null) {
-			if (other.endereco != null)
-				return false;
-		} else if (!endereco.equals(other.endereco))
-			return false;
-		if (endereco2 == null) {
-			if (other.endereco2 != null)
-				return false;
-		} else if (!endereco2.equals(other.endereco2))
-			return false;
-		return true;
 	}
 
 }
