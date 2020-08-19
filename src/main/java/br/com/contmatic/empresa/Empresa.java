@@ -1,6 +1,5 @@
 package br.com.contmatic.empresa;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Empresa {
@@ -11,9 +10,8 @@ public class Empresa {
 	private String listaDeFuncionarios; // lista de funcionário 
 	private String tipoDeEmpresa; // enum
 	private String porteDaEmpresa;
+	private List<Funcionario> funcionarios;
 
-	List<ListaDeFuncionarios> lista_DeFuncionarios = new ArrayList<ListaDeFuncionarios>();
-	
 	
 	public String getPorteDaEmpresa() {
 		return porteDaEmpresa;
@@ -87,6 +85,14 @@ public class Empresa {
 		} else if (!cnpj.equals(other.cnpj))
 			return false;
 		return true;
+	}
+
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 
 }

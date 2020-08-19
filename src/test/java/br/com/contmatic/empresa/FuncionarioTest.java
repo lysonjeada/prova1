@@ -10,7 +10,6 @@ import org.junit.Test;
 public class FuncionarioTest {
 
 	
-	private Funcionario funcionario;
 	@Test
 	public void deve_testar_Nome() {
 		Funcionario funcionario = new Funcionario ();
@@ -42,7 +41,7 @@ public class FuncionarioTest {
 		funcionario.setTempoNaEmpresa("3 anos");
 		assertEquals("3 anos", funcionario.getTempoNaEmpresa());
 	}
-	private Funcionario funcionario2;
+
 	@Test
 	public void deve_testar_nome2() {
 		Funcionario funcionario2 = new Funcionario ();
@@ -87,13 +86,13 @@ public class FuncionarioTest {
     }
 
 	@Test 
-	public void deve_testar_cpf () {
+	public void deve_testar_cpf_iguais () {
 		Funcionario funcionario = new Funcionario ();
 		funcionario.setCpf("654321");
 		Funcionario funcionario1 = new Funcionario ();
-		funcionario.setCpf("654321");
+		funcionario1.setCpf("654321");
 		assertThat(funcionario.equals(funcionario1), is (true));
-		
+		assertTrue(funcionario.hashCode() == funcionario1.hashCode());	
 		
 	}
 	
