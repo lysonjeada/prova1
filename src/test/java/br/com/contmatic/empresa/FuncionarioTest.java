@@ -38,7 +38,7 @@ public class FuncionarioTest {
 	@Test
 	public void deve_testar_data() {
 		Funcionario funcionario = new Funcionario ();
-		funcionario.setDate("3 anos");
+		funcionario.setDate("3 anos"); 
 		assertEquals("3 anos", funcionario.getDate());
 	}
 	

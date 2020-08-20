@@ -6,11 +6,10 @@ public class Empresa {
 
 	private String nome;
 	private String cnpj;
-	private String tipoDeEmpresa; 
+	private String tipoDeEmpresa;
 	private String porteDaEmpresa;
 	private List<Funcionario> funcionarios;
 
-	
 	public String getPorteDaEmpresa() {
 		return porteDaEmpresa;
 	}
@@ -27,7 +26,6 @@ public class Empresa {
 		this.tipoDeEmpresa = tipoDeEmpresa;
 	}
 
-
 	public String getNome() {
 		return nome;
 	}
@@ -43,7 +41,7 @@ public class Empresa {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
-	
+
 	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}
@@ -62,10 +60,12 @@ public class Empresa {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
+		}
 		if (getClass() != obj.getClass())
 			return false;
 		Empresa other = (Empresa) obj;
@@ -76,12 +76,11 @@ public class Empresa {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "Empresa [nome=" + nome + ", cnpj=" + cnpj + ", tipoDeEmpresa=" + tipoDeEmpresa + ", porteDaEmpresa="
 				+ porteDaEmpresa + ", funcionarios=" + funcionarios + "]";
 	}
-
-	
 
 }
