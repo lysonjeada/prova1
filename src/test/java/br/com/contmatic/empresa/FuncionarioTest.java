@@ -36,53 +36,19 @@ public class FuncionarioTest {
 		assertEquals("Analista", funcionario.getCargo());
 	}
 	@Test
-	public void deve_testar_TempoNaEmpresa() {
+	public void deve_testar_data() {
 		Funcionario funcionario = new Funcionario ();
-		funcionario.setTempoNaEmpresa("3 anos");
-		assertEquals("3 anos", funcionario.getTempoNaEmpresa());
-	}
-
-	@Test
-	public void deve_testar_nome2() {
-		Funcionario funcionario2 = new Funcionario ();
-		funcionario2.setNome("Maria");
-		assertEquals("Maria", funcionario2.getNome());
-	}
-	@Test
-	public void deve_testar_idade2() {
-		Funcionario funcionario2 = new Funcionario ();
-		funcionario2.setIdade("20");
-		assertEquals("20", funcionario2.getIdade());
-		
-	}
-	@Test
-	public void deve_testar_cpf2() {
-		Funcionario funcionario2 = new Funcionario ();
-		funcionario2.setCpf("1234567");
-		assertEquals("1234567", funcionario2.getCpf());
-	}
-	@Test
-	public void deve_testar_cargo2() {
-		Funcionario funcionario2 = new Funcionario ();
-		funcionario2.setCargo("Estagiária");
-		assertEquals("Estagiária", funcionario2.getCargo());
-	}
-	@Test
-	public void deve_testar_TempoNaEmpresa2() {
-		Funcionario funcionario2 = new Funcionario ();
-		funcionario2.setTempoNaEmpresa("1 ano");
-		assertEquals("1 ano", funcionario2.getTempoNaEmpresa());
+		funcionario.setDate("3 anos");
+		assertEquals("3 anos", funcionario.getDate());
 	}
 	
-	
-
 	@Ignore ("Teste desnecessário")
     @Test
-    public void deve_atribuir_ondetrabalha () {
+    public void deve_atribuir_cargonulo () {
         Funcionario funcionario = new Funcionario ();
-        funcionario.setOndeTrabalha("Contmatic");;
+        funcionario.setCargo(null);
 
-        assertThat(funcionario.getCargo(), is("Contmatic"));
+        assertThat(funcionario.getCargo(), (null));
     }
 
 	@Test 

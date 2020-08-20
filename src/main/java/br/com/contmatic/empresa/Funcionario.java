@@ -5,8 +5,17 @@ public class Funcionario {
 	private String idade;
 	private String cpf;
 	private String cargo;
-	private String tempoNaEmpresa;
+	private String date;
+	
 
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
 	public String getCpf() {
 		return cpf;
 	}
@@ -15,13 +24,6 @@ public class Funcionario {
 		this.cpf = cpf;
 	}
 
-	public String getTempoNaEmpresa() {
-		return tempoNaEmpresa;
-	}
-
-	public void setTempoNaEmpresa(String tempoNaEmpresa) {
-		this.tempoNaEmpresa = tempoNaEmpresa;
-	}
 
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
@@ -29,10 +31,6 @@ public class Funcionario {
 
 	public String getCargo() {
 		return cargo;
-	}
-
-	public void setOndeTrabalha(String cargo) {
-		this.cargo = cargo;
 	}
 
 	public String getNome() {
@@ -73,6 +71,12 @@ public class Funcionario {
 		} else if (!cpf.equals(other.cpf))
 			return false;
 		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return "Funcionario [nome=" + nome + ", idade=" + idade + ", cpf=" + cpf + ", cargo=" + cargo
+				+ ", tempoNaEmpresa=" + date + "]";
 	}
 
 }

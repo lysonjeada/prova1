@@ -79,4 +79,9 @@ public class Endereco {
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "Endereco [logradouro=" + logradouro + ", numero=" + numero + ", cidade=" + cidade + ", pais=" + pais
+				+ ", cep=" + cep + "]";
+	}
 }

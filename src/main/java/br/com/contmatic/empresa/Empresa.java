@@ -6,9 +6,7 @@ public class Empresa {
 
 	private String nome;
 	private String cnpj;
-	private Endereco endereco;
-	private String listaDeFuncionarios; // lista de funcionário 
-	private String tipoDeEmpresa; // enum
+	private String tipoDeEmpresa; 
 	private String porteDaEmpresa;
 	private List<Funcionario> funcionarios;
 
@@ -19,14 +17,6 @@ public class Empresa {
 
 	public void setPorteDaEmpresa(String porteDaEmpresa) {
 		this.porteDaEmpresa = porteDaEmpresa;
-	}
-
-	public String getListaDeFuncionarios() {
-		return listaDeFuncionarios;
-	}
-
-	public void setListaDeFuncionarios(String listaDeFuncionarios) {
-		this.listaDeFuncionarios = listaDeFuncionarios;
 	}
 
 	public String getTipoDeEmpresa() {
@@ -53,13 +43,13 @@ public class Empresa {
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
-
-	public Endereco getEndereco() {
-		return endereco;
+	
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 
 	@Override
@@ -86,13 +76,12 @@ public class Empresa {
 			return false;
 		return true;
 	}
-
-	public List<Funcionario> getFuncionarios() {
-		return funcionarios;
+	@Override
+	public String toString() {
+		return "Empresa [nome=" + nome + ", cnpj=" + cnpj + ", tipoDeEmpresa=" + tipoDeEmpresa + ", porteDaEmpresa="
+				+ porteDaEmpresa + ", funcionarios=" + funcionarios + "]";
 	}
 
-	public void setFuncionarios(List<Funcionario> funcionarios) {
-		this.funcionarios = funcionarios;
-	}
+	
 
 }
