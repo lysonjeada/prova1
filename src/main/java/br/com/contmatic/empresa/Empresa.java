@@ -5,11 +5,48 @@ import java.util.List;
 public class Empresa {
 
 	private String nome;
+	private String nomeFantasia;
 	private String cnpj;
 	private String tipoDeEmpresa;
 	private String porteDaEmpresa;
 	private List<Funcionario> funcionarios;
+	private String situacaoCadastral;
+	private String dataSituacaoCadastral;
+	private String telefone;
 	
+	
+
+	public String getNomeFantasia() {
+		return nomeFantasia;
+	}
+
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
+	}
+
+	public String getSituacaoCadastral() {
+		return situacaoCadastral;
+	}
+
+	public void setSituacaoCadastral(String situacaoCadastral) {
+		this.situacaoCadastral = situacaoCadastral;
+	}
+
+	public String getDataSituacaoCadastral() {
+		return dataSituacaoCadastral;
+	}
+
+	public void setDataSituacaoCadastral(String dataSituacaoCadastral) {
+		this.dataSituacaoCadastral = dataSituacaoCadastral;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
 	public String getPorteDaEmpresa() {
 		return porteDaEmpresa;

@@ -66,6 +66,34 @@ public class EmpresaTest {
 		assertEquals("1234567", empresa.getPorteDaEmpresa());
 		
 	}
+	@Test
+	public void deve_testar_nomeFantasia() {
+		empresa = new Empresa();
+		empresa.setNomeFantasia("1234567");
+		assertEquals("1234567", empresa.getNomeFantasia());
+		
+	}
+	@Test
+	public void deve_testar_telefone() {
+		empresa = new Empresa();
+		empresa.setTelefone("1234567");
+		assertEquals("1234567", empresa.getTelefone());
+		
+	}
+	@Test
+	public void deve_testar_situacaoCadastral() {
+		empresa = new Empresa();
+		empresa.setSituacaoCadastral("1234567");
+		assertEquals("1234567", empresa.getSituacaoCadastral());
+		
+	}
+	@Test
+	public void deve_testar_dataSituacaoCadastral() {
+		empresa = new Empresa();
+		empresa.setDataSituacaoCadastral("1234567");
+		assertEquals("1234567", empresa.getDataSituacaoCadastral());
+		
+	}
 
 	@Test
 	public void deve_testar_listaDeFuncionarios() {
