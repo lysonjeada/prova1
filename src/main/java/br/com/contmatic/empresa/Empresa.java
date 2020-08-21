@@ -9,6 +9,7 @@ public class Empresa {
 	private String tipoDeEmpresa;
 	private String porteDaEmpresa;
 	private List<Funcionario> funcionarios;
+	
 
 	public String getPorteDaEmpresa() {
 		return porteDaEmpresa;
@@ -44,10 +45,6 @@ public class Empresa {
 
 	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
-	}
-
-	public void setFuncionarios(List<Funcionario> funcionarios) {
-		this.funcionarios = funcionarios;
 	}
 
 	@Override
