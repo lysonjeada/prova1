@@ -6,7 +6,6 @@ public class Funcionario {
 	private String cpf;
 	private String cargo;
 	private String date;
-	
 
 	public String getDate() {
 		return date;
@@ -15,7 +14,7 @@ public class Funcionario {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
+
 	public String getCpf() {
 		return cpf;
 	}
@@ -23,7 +22,6 @@ public class Funcionario {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
 
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
@@ -48,6 +46,7 @@ public class Funcionario {
 	public void setIdade(String idade) {
 		this.idade = idade;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -72,7 +71,7 @@ public class Funcionario {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Funcionario [nome=" + nome + ", idade=" + idade + ", cpf=" + cpf + ", cargo=" + cargo

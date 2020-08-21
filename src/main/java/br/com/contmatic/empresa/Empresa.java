@@ -11,10 +11,11 @@ public class Empresa {
 	private String porteDaEmpresa;
 	private List<Funcionario> funcionarios;
 	private String situacaoCadastral;
-	private String dataSituacaoCadastral;
+	private String data;
 	private String telefone;
-	
-	
+	private String email;
+	private String situacaoEspecial;
+	private String data2;
 
 	public String getNomeFantasia() {
 		return nomeFantasia;
@@ -32,12 +33,12 @@ public class Empresa {
 		this.situacaoCadastral = situacaoCadastral;
 	}
 
-	public String getDataSituacaoCadastral() {
-		return dataSituacaoCadastral;
+	public String getData() {
+		return data;
 	}
 
-	public void setDataSituacaoCadastral(String dataSituacaoCadastral) {
-		this.dataSituacaoCadastral = dataSituacaoCadastral;
+	public void setData(String data) {
+		this.data = data;
 	}
 
 	public String getTelefone() {
@@ -115,6 +116,30 @@ public class Empresa {
 	public String toString() {
 		return "Empresa [nome=" + nome + ", cnpj=" + cnpj + ", tipoDeEmpresa=" + tipoDeEmpresa + ", porteDaEmpresa="
 				+ porteDaEmpresa + ", funcionarios=" + funcionarios + "]";
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSituacaoEspecial() {
+		return situacaoEspecial;
+	}
+
+	public void setSituacaoEspecial(String situacaoEspecial) {
+		this.situacaoEspecial = situacaoEspecial;
+	}
+
+	public String getData2() {
+		return data2;
+	}
+
+	public void setData2(String data2) {
+		this.data2 = data2;
 	}
 
 }

@@ -25,8 +25,8 @@ public class EnderecoTest {
 	@Test
 	public void deve_testar_cep() {
 		Endereco endereco = new Endereco();
-		endereco.setCep("12345");
-		assertEquals("12345", endereco.getCep());
+		endereco.setCep("03.308-050");
+		assertEquals("03.308-050", endereco.getCep());
 
 	}
 
@@ -40,16 +40,16 @@ public class EnderecoTest {
 	@Test
 	public void deve_testar_rua() {
 		Endereco endereco = new Endereco();
-		endereco.setLogradouro("Rua Berto Conde");
-		assertEquals("Rua Berto Conde", endereco.getLogradouro());
+		endereco.setLogradouro("R VISCONDE DE ITABORAI");
+		assertEquals("R VISCONDE DE ITABORAI", endereco.getLogradouro());
 
 	}
 
 	@Test
 	public void deve_testar_numero() {
 		Endereco endereco = new Endereco();
-		endereco.setNumero("1234");
-		assertEquals("1234", endereco.getNumero());
+		endereco.setNumero("368");
+		assertEquals("368", endereco.getNumero());
 	}
 
 	@Test
@@ -63,9 +63,9 @@ public class EnderecoTest {
 	@Test
 	public void deve_testar_cep_iguais() {
 		Endereco endereco = new Endereco();
-		endereco.setCep("12345");
+		endereco.setCep("09340-070");
 		Endereco endereco2 = new Endereco();
-		endereco2.setCep("12345");
+		endereco2.setCep("09340-070");
 		assertThat(endereco.equals(endereco2), is(true));
 		assertTrue(endereco.hashCode() == endereco2.hashCode());
 
@@ -74,42 +74,47 @@ public class EnderecoTest {
 	@Test
 	public void deve_testar_cep_diferentes() {
 		Endereco endereco = new Endereco();
-		endereco.setCep("12345");
+		endereco.setCep("09340-070");
 		Endereco endereco2 = new Endereco();
-		endereco2.setCep("135425");
+		endereco2.setCep("09350-070");
 		assertThat(endereco.equals(endereco2), is(false));
 		assertFalse(endereco.hashCode() == endereco2.hashCode());
 	}
+
 	@Test
 	public void deve_testar_endereco_e_funcionario() {
 		Endereco endereco = new Endereco();
-		endereco.setCep("12345");
+		endereco.setCep("09340-070");
 		Funcionario funcionario = new Funcionario();
 		assertThat(endereco.equals(funcionario), is(false));
 		assertFalse(endereco.hashCode() == funcionario.hashCode());
 
 	}
-	@Test 
-	public void testar_tostring () {
+
+	@Test
+	public void testar_tostring() {
 		Endereco endereco = new Endereco();
-		endereco.setCep("12345");
-		assertNotEquals("12345", endereco.toString());
+		endereco.setCep("09340-070");
+		assertNotEquals("09340-070", endereco.toString());
 	}
-	@Test 
-	public void testar_doisobjetos () {
+
+	@Test
+	public void testar_doisobjetos() {
 		Endereco endereco = new Endereco();
 		Endereco endereco1 = endereco;
 		assertEquals(endereco, endereco1);
 	}
-	@Test 
-	public void testar_null () {
+
+	@Test
+	public void testar_null() {
 		Endereco endereco = new Endereco();
 		Endereco endereco1 = null;
 		assertNotEquals(endereco, endereco1);
 	}
+
 	@Test
-	public void nao_deve_retornar_tostring_nulo () {
-		Endereco endereco = new Endereco ();
+	public void nao_deve_retornar_tostring_nulo() {
+		Endereco endereco = new Endereco();
 		assertNotEquals(endereco.toString(), null);
 	}
 
@@ -118,30 +123,32 @@ public class EnderecoTest {
 		Endereco endereco = new Endereco();
 		endereco.setCep(null);
 		Endereco endereco2 = new Endereco();
-		endereco2.setCep("12345");
+		endereco2.setCep("09340-070");
 		assertThat(endereco.equals(endereco2), is(false));
 		assertFalse(endereco.hashCode() == endereco2.hashCode());
 
 	}
+
 	@Test
 	public void deve_testar_numero2() {
 		Endereco endereco = new Endereco();
 		endereco.setNumero(null);
 		Endereco endereco2 = new Endereco();
-		endereco2.setNumero("12345");
+		endereco2.setNumero("368");
 		assertThat(endereco.equals(endereco2), is(false));
 		assertFalse(endereco.hashCode() == endereco2.hashCode());
 
 	}
+
 	@Test
 	public void deve_testar_numeros_diferentes() {
 		Endereco endereco = new Endereco();
-		endereco.setNumero("654321");
+		endereco.setNumero("567");
 		Endereco endereco2 = new Endereco();
-		endereco2.setNumero("12345");
+		endereco2.setNumero("369");
 		assertThat(endereco.equals(endereco2), is(false));
 		assertFalse(endereco.hashCode() == endereco2.hashCode());
 
 	}
-	
+
 }

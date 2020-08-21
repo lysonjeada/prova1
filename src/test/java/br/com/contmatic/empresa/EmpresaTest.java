@@ -35,78 +35,104 @@ public class EmpresaTest {
 		empresa = new Empresa();
 		empresa.setNome("Contmatic");
 		assertEquals("Contmatic", empresa.getNome());
-		
 
 	}
 
 	@Test
 	public void deve_testar_cnpj() {
 		empresa = new Empresa();
-		empresa.setCnpj("1234567");
-		assertEquals("1234567", empresa.getCnpj());
+		empresa.setCnpj("58.119.371/0001-77");
+		assertEquals("58.119.371/0001-77", empresa.getCnpj());
 	}
+
 	@Test
-	public void deve_testar_cnpj_nulo() {
+	public void deve_testar_cnpj_nulo_e_nao_nulo() {
 		empresa = new Empresa();
-		empresa.setCnpj("12345");
+		empresa.setCnpj("26.870.272/0001-36");
 		assertNotEquals(null, empresa.getCnpj());
 	}
 
 	@Test
 	public void deve_Testar_Nova_Empresa_Tipo() {
 		empresa = new Empresa();
-		empresa.setTipoDeEmpresa("1234567");
-		assertEquals("1234567", empresa.getTipoDeEmpresa());
+		empresa.setTipoDeEmpresa("MEI");
+		assertEquals("MEI", empresa.getTipoDeEmpresa());
 	}
 
 	@Test
 	public void deve_testar_porte() {
 		empresa = new Empresa();
-		empresa.setPorteDaEmpresa("1234567");
-		assertEquals("1234567", empresa.getPorteDaEmpresa());
-		
+		empresa.setPorteDaEmpresa("Médio");
+		assertEquals("Médio", empresa.getPorteDaEmpresa());
+
 	}
+
 	@Test
 	public void deve_testar_nomeFantasia() {
 		empresa = new Empresa();
-		empresa.setNomeFantasia("1234567");
-		assertEquals("1234567", empresa.getNomeFantasia());
-		
+		empresa.setNomeFantasia("CONTENTE COMERCIO E NEGOCIOS");
+		assertEquals("CONTENTE COMERCIO E NEGOCIOS", empresa.getNomeFantasia());
+
 	}
+
 	@Test
 	public void deve_testar_telefone() {
 		empresa = new Empresa();
-		empresa.setTelefone("1234567");
-		assertEquals("1234567", empresa.getTelefone());
-		
+		empresa.setTelefone("(0011) 6942-9811");
+		assertEquals("(0011) 6942-9811", empresa.getTelefone());
+
 	}
+
 	@Test
 	public void deve_testar_situacaoCadastral() {
 		empresa = new Empresa();
-		empresa.setSituacaoCadastral("1234567");
-		assertEquals("1234567", empresa.getSituacaoCadastral());
-		
+		empresa.setSituacaoCadastral("Ativa");
+		assertEquals("Ativa", empresa.getSituacaoCadastral());
+
 	}
+
 	@Test
 	public void deve_testar_dataSituacaoCadastral() {
 		empresa = new Empresa();
-		empresa.setDataSituacaoCadastral("1234567");
-		assertEquals("1234567", empresa.getDataSituacaoCadastral());
-		
+		empresa.setData("26/06/2004");
+		assertEquals("26/06/2004", empresa.getData());
+
+	}
+
+	@Test
+	public void deve_testar_email() {
+		empresa = new Empresa();
+		empresa.setEmail("autoatendimento@contmatic.com.br");
+		assertEquals("autoatendimento@contmatic.com.br", empresa.getEmail());
+	}
+
+	@Test
+	public void deve_testar_situacaoEspecial() {
+		empresa = new Empresa();
+		empresa.setSituacaoEspecial("Ativada");
+		assertEquals("Ativada", empresa.getSituacaoEspecial());
+
+	}
+
+	@Test
+	public void deve_testar_dataSituacaoEspecial() {
+		empresa = new Empresa();
+		empresa.setData2("26/06/2004");
+		assertEquals("26/06/2004", empresa.getData2());
 	}
 
 	@Test
 	public void deve_testar_listaDeFuncionarios() {
-		Funcionario funcionario = new Funcionario ();
-		List<Funcionario> funcionarios = new ArrayList <> ();
+		Funcionario funcionario = new Funcionario();
+		List<Funcionario> funcionarios = new ArrayList<>();
 		funcionarios.add(funcionario);
-		Funcionario funcionario2 = new Funcionario ();
-		List <Funcionario> funcionarios2 = new ArrayList <> ();
+		Funcionario funcionario2 = new Funcionario();
+		List<Funcionario> funcionarios2 = new ArrayList<>();
 		funcionarios2.add(funcionario2);
-		Empresa empresa2 = new Empresa ();
+		Empresa empresa2 = new Empresa();
 		assertThat(funcionarios.equals(funcionarios2), is(true));
 		assertTrue(funcionarios.hashCode() == funcionarios2.hashCode());
-		assertEquals(empresa.getFuncionarios(), empresa2.getFuncionarios());	
+		assertEquals(empresa.getFuncionarios(), empresa2.getFuncionarios());
 	}
 
 	@Test(expected = NullPointerException.class)
@@ -114,27 +140,29 @@ public class EmpresaTest {
 		empresa = null;
 		assertThat(empresa.equals(null), is(true));
 	}
+
 	@Test
-	public void teste_cpf_nulo (){
-		empresa = new Empresa ();
+	public void teste_cpf_nulo() {
+		empresa = new Empresa();
 		empresa.setCnpj(null);
 		assertEquals(null, empresa.getCnpj());
-		
+
 	}
+
 	@Test
-	public void teste_cpf_nulo2(){
-		empresa = new Empresa ();
+	public void teste_cpf_nulo2() {
+		empresa = new Empresa();
 		empresa.setCnpj("12345");
 		assertNotEquals(null, empresa.getCnpj());
-		
+
 	}
 
 	@Test
 	public void deve_testar_cnpj_iguais() {
 		Empresa empresa = new Empresa();
-		empresa.setCnpj("12345");
+		empresa.setCnpj("26.870.272/0001-36");
 		Empresa empresa2 = new Empresa();
-		empresa2.setCnpj("12345");
+		empresa2.setCnpj("26.870.272/0001-36");
 		assertThat(empresa.equals(empresa2), is(true));
 		assertTrue(empresa.hashCode() == empresa2.hashCode());
 
@@ -143,66 +171,72 @@ public class EmpresaTest {
 	@Test
 	public void deve_testar_cnpj_diferentes() {
 		Empresa empresa = new Empresa();
-		empresa.setCnpj("12345");
+		empresa.setCnpj("26.870.272/0001-36");
 		Empresa empresa2 = new Empresa();
-		empresa2.setCnpj("123435");
+		empresa2.setCnpj("35.876.272/0001-98");
 		assertThat(empresa.equals(empresa2), is(false));
 		assertFalse(empresa.hashCode() == empresa2.hashCode());
 
 	}
+
 	@Test
 	public void deve_testar_empresa_e_funcionario() {
 		Empresa empresa = new Empresa();
-		empresa.setCnpj("12345");
+		empresa.setCnpj("26.870.272/0001-36");
 		Funcionario funcionario = new Funcionario();
 		assertThat(empresa.equals(funcionario), is(false));
 		assertFalse(empresa.hashCode() == funcionario.hashCode());
-		
+
 	}
 
 	@Test
 	public void deve_testar_cnpj2() {
 		Empresa empresa = new Empresa();
-		empresa.setCnpj("12345");
+		empresa.setCnpj("26.870.272/0001-36");
 		Empresa empresa2 = new Empresa();
-		empresa2.setCnpj("98654");
+		empresa2.setCnpj("56.980.272/0001-86");
 		assertThat(empresa.equals(empresa2), is(false));
 		assertFalse(empresa.hashCode() == empresa2.hashCode());
 
 	}
+
 	@Test
 	public void deve_testar_cnpj3() {
 		Empresa empresa = new Empresa();
 		empresa.setCnpj(null);
 		Empresa empresa2 = new Empresa();
-		empresa2.setCnpj("98654");
+		empresa2.setCnpj("26.870.272/0001-36");
 		assertNotEquals(empresa, empresa2);
 		assertThat(empresa.equals(empresa2), is(false));
 		assertFalse(empresa.hashCode() == empresa2.hashCode());
 
 	}
-	@Test 
-	public void testar_tostring () {
+
+	@Test
+	public void testar_tostring() {
 		Empresa empresa = new Empresa();
-		empresa.setCnpj("12345");
-		assertNotEquals("12345", empresa.toString());
+		empresa.setCnpj("26.870.272/0001-36");
+		assertNotEquals("26.870.272/0001-36", empresa.toString());
 	}
-	@Test 
-	public void testar_doisobjetos () {
+
+	@Test
+	public void testar_doisobjetos() {
 		Empresa empresa = new Empresa();
 		Empresa empresa1 = empresa;
 		assertEquals(empresa, empresa1);
 	}
-	@Test 
-	public void testar_null () {
+
+	@Test
+	public void testar_null() {
 		Empresa empresa = new Empresa();
 		Empresa empresa1 = null;
 		assertNotEquals(empresa, empresa1);
 	}
+
 	@Test
-	public void nao_deve_retornar_tostring_nulo () {
+	public void nao_deve_retornar_tostring_nulo() {
 		Empresa empresa = new Empresa();
 		assertNotEquals(empresa.toString(), null);
 	}
-	
+
 }
