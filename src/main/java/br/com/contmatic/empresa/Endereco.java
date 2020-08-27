@@ -1,5 +1,9 @@
 package br.com.contmatic.empresa;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class Endereco {
 
 	private String logradouro;
@@ -46,6 +50,18 @@ public class Endereco {
 
 	public void setPais(String pais) {
 		this.pais = pais;
+	}
+
+	public boolean equals(Endereco endereco) {
+		return EqualsBuilder.reflectionEquals(this, endereco.getCep());
+	}
+
+	public int hashCode(Endereco endereco) {
+		return HashCodeBuilder.reflectionHashCode(this);
+	}
+
+	public String toString(Endereco endereco) {
+		return ToStringBuilder.reflectionToString(this);
 	}
 
 	@Override

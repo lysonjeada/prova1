@@ -2,6 +2,10 @@ package br.com.contmatic.empresa;
 
 import java.util.List;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class Empresa {
 
 	private String nome;
@@ -83,6 +87,18 @@ public class Empresa {
 
 	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
+	}
+
+	public boolean equals(Empresa empresa) {
+		return EqualsBuilder.reflectionEquals(this, empresa.getCnpj());
+	}
+
+	public int hashCode(Empresa empresa) {
+		return HashCodeBuilder.reflectionHashCode(this);
+	}
+
+	public String toString(Empresa empresa) {
+		return ToStringBuilder.reflectionToString(this);
 	}
 
 	@Override

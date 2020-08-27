@@ -1,5 +1,9 @@
 package br.com.contmatic.empresa;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class Funcionario {
 	private String nome;
 	private String idade;
@@ -45,6 +49,18 @@ public class Funcionario {
 
 	public void setIdade(String idade) {
 		this.idade = idade;
+	}
+
+	public boolean equals(Funcionario funcionario) {
+		return EqualsBuilder.reflectionEquals(this, funcionario.getCpf());
+	}
+
+	public int hashCode(Funcionario funcionario) {
+		return HashCodeBuilder.reflectionHashCode(this);
+	}
+
+	public String toString(Funcionario funcionario) {
+		return ToStringBuilder.reflectionToString(this);
 	}
 
 	@Override
