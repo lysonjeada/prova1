@@ -223,9 +223,19 @@ public class Empresa {
 
 	public void setEnderecos(List <Endereco> enderecos) {
 		if (enderecos.equals(null)) {
-			throw new IllegalArgumentException("O endereço da empresa não pode ser nulo.");
+			throw new IllegalArgumentException("A lista de endereços da empresa não pode ser nula");
+		} else if (enderecos.isEmpty()) {
+			throw new IllegalArgumentException("A lista de endereços da empresa não pode ser vazia");
 		}
-		this.enderecos = enderecos;
+	}
+
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		if (funcionarios.equals(null)) {
+			throw new IllegalArgumentException("A lista de funcionarios da empresa não pode ser nula");
+		} else if (funcionarios.isEmpty()) {
+			throw new IllegalArgumentException("A lista de funcionarios da empresa não pode ser vazia");
+		}
+		this.funcionarios = funcionarios;
 	}
 
 	@Override
