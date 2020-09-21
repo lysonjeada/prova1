@@ -18,16 +18,16 @@ public class FuncionarioTest {
 	@Test
 	public void deve_testar_idade() {
 		Funcionario funcionario = new Funcionario();
-		funcionario.setIdade("22");
-		assertEquals("22", funcionario.getIdade());
+		funcionario.setIdade(22);
+		assertEquals(22, funcionario.getIdade());
 
 	}
 
 	@Test
 	public void deve_testar_cpf() {
 		Funcionario funcionario = new Funcionario();
-		funcionario.setCpf("885.082.875-11");
-		assertEquals("885.082.875-11", funcionario.getCpf());
+		funcionario.setCpf("88508287511");
+		assertEquals("88508287511", funcionario.getCpf());
 	}
 
 	@Test
@@ -52,16 +52,8 @@ public class FuncionarioTest {
 	}
 
 	@Test
-	public void deve_testar_data() {
-		Funcionario funcionario = new Funcionario();
-		funcionario.setDate("3 anos");
-		assertEquals("3 anos", funcionario.getDate());
-
-	}
-
-	@Test
 	public void deve_testar_empresa_e_funcionario() {
-		Empresa empresa = new Empresa();
+		Empresa empresa = new Empresa("42771949000135");
 		empresa.setCnpj("12345");
 		Funcionario funcionario = new Funcionario();
 		assertThat(empresa.equals(funcionario), is(false));
@@ -81,9 +73,9 @@ public class FuncionarioTest {
 	@Test
 	public void deve_testar_cpf_iguais() {
 		Funcionario funcionario = new Funcionario();
-		funcionario.setCpf("885.082.875-11");
+		funcionario.setCpf("88508287511");
 		Funcionario funcionario1 = new Funcionario();
-		funcionario1.setCpf("885.082.875-11");
+		funcionario1.setCpf("88508287511");
 		assertThat(funcionario.equals(funcionario1), is(true));
 		assertTrue(funcionario.hashCode() == funcionario1.hashCode());
 
@@ -139,7 +131,7 @@ public class FuncionarioTest {
 	@Test
 	public void testar_classes_diferentes() {
 		Funcionario funcionario = new Funcionario();
-		Empresa empresa = new Empresa();
+		Empresa empresa = new Empresa("42771949000135");
 		assertNotEquals(empresa.getClass(), funcionario.getClass());
 		assertThat(funcionario.equals(empresa), is(false));
 

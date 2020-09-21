@@ -1,31 +1,66 @@
 package br.com.contmatic.empresa;
 
+import java.text.DateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class Empresa {
+import br.com.contmatic.empresa.validadores.*;
 
+public class Empresa {
+	
 	private String nome;
+	
 	private String nomeFantasia;
+	
 	private String cnpj;
-	private String tipoDeEmpresa;
-	private String porteDaEmpresa;
-	private List<Funcionario> funcionarios;
+	
+	private String tipo;
+	
+	private String porte;
+	
 	private String situacaoCadastral;
-	private String data;
+	
+	private Date dataDeCriacao;
+	
 	private String telefone;
+	
 	private String email;
+	
 	private String situacaoEspecial;
-	private String data2;
+	
+	private List<Funcionario> funcionarios;
+	
+	private List <Endereco> enderecos;
+
+	public Empresa(String cnpj) {
+		this.setCnpj(cnpj);
+	}
 
 	public String getNomeFantasia() {
 		return nomeFantasia;
 	}
 
 	public void setNomeFantasia(String nomeFantasia) {
+		if (nomeFantasia.length() > 50 ) {
+			throw new IllegalArgumentException("O nome fantasia da empresa não pode ter mais que 50 caracteres.");
+		} else if (nomeFantasia.length() < 0){
+			throw new IllegalArgumentException("O nome fantasia da empresa não pode ter menos de 0 caracteres");
+		} else if (nomeFantasia.isEmpty()) {
+			throw new IllegalArgumentException("O nome fantasia da empresa não pode ser nulo");
+		} else if (nomeFantasia.equals(null))
+			throw new IllegalArgumentException("A situaçaõ cadastral da empresa não pode ser nula");
+		{
+			
+		}
 		this.nomeFantasia = nomeFantasia;
 	}
 
@@ -34,39 +69,69 @@ public class Empresa {
 	}
 
 	public void setSituacaoCadastral(String situacaoCadastral) {
+		if (nome.length() > 9 ) {
+			throw new IllegalArgumentException("A situação cadastral da empresa não pode ter mais que 9 caracteres.");
+		} else if (nome.equals(null)){
+			throw new IllegalArgumentException("A situação cadastral da empresa não pode ser nulo");
+		} else if (nome.isEmpty()) {
+			throw new IllegalArgumentException("A situaçaõ cadastral da empresa não pode ser vazio");
+		}
 		this.situacaoCadastral = situacaoCadastral;
 	}
 
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;
-	}
-
+	
+	
 	public String getTelefone() {
 		return telefone;
 	}
 
 	public void setTelefone(String telefone) {
+		if (telefone.length() > 9) {
+			throw new IllegalArgumentException("O telefone da empresa não pode ter mais que 9 caracteres.");
+		} else if (telefone.length() < 0) {
+			throw new IllegalArgumentException("O telefone da empresa não pode ter menos de 0 caracteres");
+		} else if (telefone.isEmpty()) {
+			throw new IllegalArgumentException("O telefone da empresa não pode ser vazio");
+		} else if (telefone.equals(null)) {
+			throw new IllegalArgumentException("O telefone da empresa não pode ser nulo");
+		}
 		this.telefone = telefone;
 	}
 
 	public String getPorteDaEmpresa() {
-		return porteDaEmpresa;
+		return porte;
 	}
 
 	public void setPorteDaEmpresa(String porteDaEmpresa) {
-		this.porteDaEmpresa = porteDaEmpresa;
+		if (porteDaEmpresa.length() > 7 ) {
+			throw new IllegalArgumentException("O porte da empresa não pode ter mais que 7 caracteres.");
+		} else if (porteDaEmpresa.length() < 0){
+			throw new IllegalArgumentException("O porte da empresa não pode ter menos de 0 caracteres");
+		} else if (porteDaEmpresa.isEmpty()) {
+			throw new IllegalArgumentException("O porte da empresa não pode ser vazio");
+		}
+		else if (porteDaEmpresa.equals(null)){
+			throw new IllegalArgumentException("O porte da da empresa não pode ser nulo");
+		}
+		this.porte = porteDaEmpresa;
 	}
 
 	public String getTipoDeEmpresa() {
-		return tipoDeEmpresa;
+		return tipo;
 	}
 
 	public void setTipoDeEmpresa(String tipoDeEmpresa) {
-		this.tipoDeEmpresa = tipoDeEmpresa;
+		if (tipoDeEmpresa.length() > 9 ) {
+			throw new IllegalArgumentException("O tipo da empresa não pode ter mais que 9 caracteres.");
+		} else if (tipoDeEmpresa.length() < 0){
+			throw new IllegalArgumentException("O tipo da empresa não pode ter menos de 0 caracteres");
+		} else if (tipoDeEmpresa.isEmpty()) {
+			throw new IllegalArgumentException("O tipo da empresa não pode ser vazio");
+		}
+		else if (tipoDeEmpresa.equals(null)){
+			throw new IllegalArgumentException("O tipo da empresa não pode ser nulo");
+		}
+		this.tipo = tipoDeEmpresa;
 	}
 
 	public String getNome() {
@@ -74,6 +139,16 @@ public class Empresa {
 	}
 
 	public void setNome(String nome) {
+		if (nome.length() > 9 ) {
+			throw new IllegalArgumentException("O nome da empresa não pode ter mais que 9 caracteres.");
+		} else if (nome.length() < 0){
+			throw new IllegalArgumentException("O nome da empresa não pode ter menos de 0 caracteres");
+		} else if (nome.isEmpty()) {
+			throw new IllegalArgumentException("O nome da empresa não pode ser vazio");
+		}
+		else if (nome.equals(null)){
+			throw new IllegalArgumentException("O nome da empresa não pode ser nulo");
+		}
 		this.nome = nome;
 	}
 
@@ -82,23 +157,75 @@ public class Empresa {
 	}
 
 	public void setCnpj(String cnpj) {
+		if (cnpj.length() > 14 || cnpj.length() < 14) {
+			throw new IllegalArgumentException("CNPJ inválido, precisa conter 14 caracteres");
+		} else if (cnpj.isEmpty()) {
+			throw new IllegalArgumentException("O cnpj da empresa não pode ser vazio");
+		} else if (cnpj.equals(null)) {
+			throw new IllegalArgumentException("O cnpj da empresa não pode ser nulo");
+		}
 		this.cnpj = cnpj;
 	}
 
 	public List<Funcionario> getFuncionarios() {
 		return funcionarios;
 	}
-
-	public boolean equals(Empresa empresa) {
-		return EqualsBuilder.reflectionEquals(this, empresa.getCnpj());
+	
+	public String getEmail() {
+		return email;
 	}
 
-	public int hashCode(Empresa empresa) {
-		return HashCodeBuilder.reflectionHashCode(this);
+	public void setEmail(String email) {
+		if (email.length() > 9 ) {
+			throw new IllegalArgumentException("O telefone da empresa não pode ter mais que 9 caracteres.");
+		} else if (email.length() < 0){
+			throw new IllegalArgumentException("O telefone da empresa não pode ter menos de 0 caracteres");
+		} else if (email.isEmpty()) {
+			throw new IllegalArgumentException("O telefone da empresa não pode ser nulo");
+		}
+		this.email = email;
 	}
 
-	public String toString(Empresa empresa) {
-		return ToStringBuilder.reflectionToString(this);
+	public String getSituacaoEspecial() {
+		return situacaoEspecial;
+	}
+
+	public void setSituacaoEspecial(String situacaoEspecial) {
+		if (situacaoEspecial.length() > 9 ) {
+			throw new IllegalArgumentException("A situação especial da empresa não pode ter mais que 9 caracteres.");
+		} else if (situacaoEspecial.length() < 0){
+			throw new IllegalArgumentException("A situação especial da empresa não pode ter menos de 0 caracteres");
+		} else if (situacaoEspecial.isEmpty()) {
+			throw new IllegalArgumentException("A situação especial da empresa não pode ser vazio");
+		} else if (situacaoEspecial.equals(null)) {
+			throw new IllegalArgumentException("A situação especial da empresa não pode ser nulo");
+		}
+		this.situacaoEspecial = situacaoEspecial;
+	}
+	
+	public Date getDataDeCriacao() {
+		return dataDeCriacao;
+	}
+
+	public void setDataDeCriacao(Date dataDeCriacao) {
+		Calendar dataAtual = Calendar.getInstance();
+		Integer ano = dataAtual .get(Calendar.YEAR);
+		Integer mes = dataAtual .get(Calendar.MONTH);
+		Integer diaDoMes = dataAtual .get(Calendar.DAY_OF_MONTH);
+		
+		
+		this.dataDeCriacao = dataDeCriacao;
+	}
+
+	public List <Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public void setEnderecos(List <Endereco> enderecos) {
+		if (enderecos.equals(null)) {
+			throw new IllegalArgumentException("O endereço da empresa não pode ser nulo.");
+		}
+		this.enderecos = enderecos;
 	}
 
 	@Override
@@ -130,32 +257,11 @@ public class Empresa {
 
 	@Override
 	public String toString() {
-		return "Empresa [nome=" + nome + ", cnpj=" + cnpj + ", tipoDeEmpresa=" + tipoDeEmpresa + ", porteDaEmpresa="
-				+ porteDaEmpresa + ", funcionarios=" + funcionarios + "]";
+		return "Empresa [nome=" + nome + ", cnpj=" + cnpj + ", tipoDeEmpresa=" + tipo + ", porteDaEmpresa="
+				+ porte + ", funcionarios=" + funcionarios + "]";
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getSituacaoEspecial() {
-		return situacaoEspecial;
-	}
-
-	public void setSituacaoEspecial(String situacaoEspecial) {
-		this.situacaoEspecial = situacaoEspecial;
-	}
-
-	public String getData2() {
-		return data2;
-	}
-
-	public void setData2(String data2) {
-		this.data2 = data2;
-	}
+	
+	
 
 }

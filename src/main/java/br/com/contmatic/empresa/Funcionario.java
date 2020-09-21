@@ -1,33 +1,52 @@
 package br.com.contmatic.empresa;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Funcionario {
+	
 	private String nome;
-	private String idade;
+	
+	private int idade;
+	
 	private String cpf;
+	
 	private String cargo;
-	private String date;
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
+	
+	private Date dataNascimento;
 
 	public String getCpf() {
 		return cpf;
 	}
 
 	public void setCpf(String cpf) {
+		if (nome.length() > 11 || nome.length() < 11) {
+			throw new IllegalArgumentException("O cpf do funcionario não pode ter mais ou menos que 11 caracteres.");
+		}  else if (nome.isEmpty()) {
+			throw new IllegalArgumentException("O cpf do funcionario não pode ser vazio");
+		} else if (nome.equals(null)){
+			throw new IllegalArgumentException("O cpf do funcionario não pode ser nulo");
+		}
 		this.cpf = cpf;
 	}
 
 	public void setCargo(String cargo) {
+		if (nome.length() > 50 ) {
+			throw new IllegalArgumentException("O cargo do funcionario não pode ter mais que 50 caracteres.");
+		} else if (nome.length() <= 2){
+			throw new IllegalArgumentException("O cargo do funcionario tem que ter no mínimo 2 caracteres");
+		} else if (nome.isEmpty()) {
+			throw new IllegalArgumentException("O cargo do funcionario não pode ser vazio");
+		}
+		else if (nome.equals(null)){
+			throw new IllegalArgumentException("O cargo do funcionario não pode ser nulo");
+		}
 		this.cargo = cargo;
 	}
 
@@ -40,27 +59,42 @@ public class Funcionario {
 	}
 
 	public void setNome(String nome) {
+		if (nome.length() > 197 ) {
+			throw new IllegalArgumentException("O nome do funcionario não pode ter mais que 197 caracteres.");
+		} else if (nome.length() <= 2){
+			throw new IllegalArgumentException("O nome do funcionario tem que ter no mínimo 2 caracteres");
+		} else if (nome.isEmpty()) {
+			throw new IllegalArgumentException("O nome do funcionario não pode ser vazio");
+		}
+		else if (nome.equals(null)){
+			throw new IllegalArgumentException("O nome do funcionario não pode ser nulo");
+		}
 		this.nome = nome;
 	}
-
-	public String getIdade() {
+	
+	public int getIdade() {
 		return idade;
 	}
 
-	public void setIdade(String idade) {
+	public void setIdade(int idade) {
+		if (idade > 150 ) {
+			throw new IllegalArgumentException("A idade não pode ser mais que 150.");
+		} else if (idade <= 16){
+			throw new IllegalArgumentException("A idade do funcionario tem que ser no minimo 16");
+		} 
 		this.idade = idade;
 	}
 
-	public boolean equals(Funcionario funcionario) {
-		return EqualsBuilder.reflectionEquals(this, funcionario.getCpf());
+
+
+	
+
+	public Date getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public int hashCode(Funcionario funcionario) {
-		return HashCodeBuilder.reflectionHashCode(this);
-	}
-
-	public String toString(Funcionario funcionario) {
-		return ToStringBuilder.reflectionToString(this);
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	@Override
@@ -91,7 +125,8 @@ public class Funcionario {
 	@Override
 	public String toString() {
 		return "Funcionario [nome=" + nome + ", idade=" + idade + ", cpf=" + cpf + ", cargo=" + cargo
-				+ ", tempoNaEmpresa=" + date + "]";
+				+ ", tempoNaEmpresa=" + dataNascimento + "]";
 	}
 
+	
 }

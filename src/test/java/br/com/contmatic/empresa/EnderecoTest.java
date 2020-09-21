@@ -25,8 +25,8 @@ public class EnderecoTest {
 	@Test
 	public void deve_testar_cep() {
 		Endereco endereco = new Endereco();
-		endereco.setCep("03.308-050");
-		assertEquals("03.308-050", endereco.getCep());
+		endereco.setCep("03308050");
+		assertEquals("03308050", endereco.getCep());
 
 	}
 
@@ -48,7 +48,7 @@ public class EnderecoTest {
 	@Test
 	public void deve_testar_numero() {
 		Endereco endereco = new Endereco();
-		endereco.setNumero("368");
+		endereco.setNumero(368);
 		assertEquals("368", endereco.getNumero());
 	}
 
@@ -63,9 +63,9 @@ public class EnderecoTest {
 	@Test
 	public void deve_testar_cep_iguais() {
 		Endereco endereco = new Endereco();
-		endereco.setCep("09340-070");
+		endereco.setCep("09340070");
 		Endereco endereco2 = new Endereco();
-		endereco2.setCep("09340-070");
+		endereco2.setCep("09340070");
 		assertThat(endereco.equals(endereco2), is(true));
 		assertTrue(endereco.hashCode() == endereco2.hashCode());
 
@@ -74,9 +74,9 @@ public class EnderecoTest {
 	@Test
 	public void deve_testar_cep_diferentes() {
 		Endereco endereco = new Endereco();
-		endereco.setCep("09340-070");
+		endereco.setCep("09340070");
 		Endereco endereco2 = new Endereco();
-		endereco2.setCep("09350-070");
+		endereco2.setCep("09350070");
 		assertThat(endereco.equals(endereco2), is(false));
 		assertFalse(endereco.hashCode() == endereco2.hashCode());
 	}
@@ -84,7 +84,7 @@ public class EnderecoTest {
 	@Test
 	public void deve_testar_endereco_e_funcionario() {
 		Endereco endereco = new Endereco();
-		endereco.setCep("09340-070");
+		endereco.setCep("09340070");
 		Funcionario funcionario = new Funcionario();
 		assertThat(endereco.equals(funcionario), is(false));
 		assertFalse(endereco.hashCode() == funcionario.hashCode());
@@ -94,8 +94,8 @@ public class EnderecoTest {
 	@Test
 	public void testar_tostring() {
 		Endereco endereco = new Endereco();
-		endereco.setCep("09340-070");
-		assertNotEquals("09340-070", endereco.toString());
+		endereco.setCep("09340070");
+		assertNotEquals("09340070", endereco.toString());
 	}
 
 	@Test
@@ -123,7 +123,7 @@ public class EnderecoTest {
 		Endereco endereco = new Endereco();
 		endereco.setCep(null);
 		Endereco endereco2 = new Endereco();
-		endereco2.setCep("09340-070");
+		endereco2.setCep("09340070");
 		assertThat(endereco.equals(endereco2), is(false));
 		assertFalse(endereco.hashCode() == endereco2.hashCode());
 
@@ -134,7 +134,7 @@ public class EnderecoTest {
 		Endereco endereco = new Endereco();
 		endereco.setNumero(null);
 		Endereco endereco2 = new Endereco();
-		endereco2.setNumero("368");
+		endereco2.setNumero(368);
 		assertThat(endereco.equals(endereco2), is(false));
 		assertFalse(endereco.hashCode() == endereco2.hashCode());
 
@@ -143,9 +143,9 @@ public class EnderecoTest {
 	@Test
 	public void deve_testar_numeros_diferentes() {
 		Endereco endereco = new Endereco();
-		endereco.setNumero("567");
+		endereco.setNumero(567);
 		Endereco endereco2 = new Endereco();
-		endereco2.setNumero("369");
+		endereco2.setNumero(369);
 		assertThat(endereco.equals(endereco2), is(false));
 		assertFalse(endereco.hashCode() == endereco2.hashCode());
 

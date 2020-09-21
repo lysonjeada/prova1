@@ -7,9 +7,13 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class Endereco {
 
 	private String logradouro;
-	private String numero;
+	
+	private Integer numero;
+	
 	private String cidade;
+	
 	private String pais;
+	
 	private String cep;
 
 	public String getCep() {
@@ -21,6 +25,15 @@ public class Endereco {
 	}
 
 	public String getLogradouro() {
+		if (logradouro.length() > 9 ) {
+			throw new IllegalArgumentException("O logradouro do endereço não pode ter mais que 9 caracteres.");
+		} else if (logradouro.length() < 0){
+			throw new IllegalArgumentException("O logradouro do endereço não pode ter menos de 0 caracteres");
+		} else if (logradouro.isEmpty()) {
+			throw new IllegalArgumentException("O logradouro do endereço não pode ser vazio");
+		} else if (logradouro.equals(null)) {
+			throw new IllegalArgumentException("O logradouro do endereço não pode ser nulo");
+		}
 		return logradouro;
 	}
 
@@ -28,11 +41,18 @@ public class Endereco {
 		this.logradouro = logradouro;
 	}
 
-	public String getNumero() {
+	public int getNumero() {
 		return numero;
 	}
 
-	public void setNumero(String numero) {
+	public void setNumero(Integer numero) {
+		if (numero > 150 ) {
+			throw new IllegalArgumentException("O numero do endereço não pode ser maior que ");
+		} else if (numero <= 16){
+			throw new IllegalArgumentException("O numero do endereço não pode ser menor que ");
+		} else if (numero == 0){
+			throw new IllegalArgumentException("O numero do endereço não pode ser nulo");
+		}
 		this.numero = numero;
 	}
 
@@ -41,27 +61,33 @@ public class Endereco {
 	}
 
 	public void setCidade(String cidade) {
+		if (cidade.length() > 9 ) {
+			throw new IllegalArgumentException("A cidade do endereço não pode ter mais que 9 caracteres.");
+		} else if (cidade.length() < 0){
+			throw new IllegalArgumentException("A cidade do endereço não pode ter menos de 0 caracteres");
+		} else if (cidade.isEmpty()) {
+			throw new IllegalArgumentException("A cidade do endereço não pode ser vazio");
+		} else if (cidade.equals(null)) {
+			throw new IllegalArgumentException("A cidade do endereço não pode ser nulo");
+		}
 		this.cidade = cidade;
 	}
 
-	public String getPais() {
+	public String getPais() {		
 		return pais;
 	}
 
 	public void setPais(String pais) {
+		if (pais.length() > 9 ) {
+			throw new IllegalArgumentException("O país do endereço não pode ter mais que 9 caracteres.");
+		} else if (pais.length() < 0){
+			throw new IllegalArgumentException("O país do endereço não pode ter menos de 0 caracteres");
+		} else if (pais.isEmpty()) {
+			throw new IllegalArgumentException("O país do endereço não pode ser vazio");
+		} else if (pais.equals(null)) {
+			throw new IllegalArgumentException("O país do endereço não pode ser nulo");
+		}
 		this.pais = pais;
-	}
-
-	public boolean equals(Endereco endereco) {
-		return EqualsBuilder.reflectionEquals(this, endereco.getCep());
-	}
-
-	public int hashCode(Endereco endereco) {
-		return HashCodeBuilder.reflectionHashCode(this);
-	}
-
-	public String toString(Endereco endereco) {
-		return ToStringBuilder.reflectionToString(this);
 	}
 
 	@Override
