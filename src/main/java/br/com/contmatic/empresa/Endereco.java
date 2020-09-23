@@ -15,14 +15,41 @@ public class Endereco {
 	private String pais;
 	
 	private String cep;
+	
+	private String complementoDoLogradouro;
 
 	public String getCep() {
 		return cep;
 	}
 
 	public void setCep(String cep) {
-		
+		if (cep.length() > 9 ) {
+			throw new IllegalArgumentException("O logradouro do endereço não pode ter mais que 9 caracteres.");
+		} else if (cep.length() < 0){
+			throw new IllegalArgumentException("O logradouro do endereço não pode ter menos de 0 caracteres");
+		} else if (cep.isEmpty()) {
+			throw new IllegalArgumentException("O logradouro do endereço não pode ser vazio");
+		} else if (cep.equals(null)) {
+			throw new IllegalArgumentException("O logradouro do endereço não pode ser nulo");
+		}
 		this.cep = cep;
+	}
+	
+	public String getComplementoDoLogradouro() {
+		return complementoDoLogradouro;
+	}
+
+	public void setComplementoDoLogradouro(String complementoDoLogradouro) {
+		if (complementoDoLogradouro.length() > 50 ) {
+			throw new IllegalArgumentException("O complemento do logradouro do endereço não pode ter mais que 50 caracteres.");
+		} else if (complementoDoLogradouro.length() < 0){
+			throw new IllegalArgumentException("O complemento do logradouro do endereço não pode ter menos de 0 caracteres");
+		} else if (complementoDoLogradouro.isEmpty()) {
+			throw new IllegalArgumentException("O complemento do logradouro do endereço não pode ser vazio");
+		} else if (complementoDoLogradouro.equals(null)) {
+			throw new IllegalArgumentException("O complemento do logradouro do endereço não pode ser nulo");
+		}
+		this.complementoDoLogradouro = complementoDoLogradouro;
 	}
 
 	public String getLogradouro() {
@@ -47,8 +74,8 @@ public class Endereco {
 	}
 
 	public void setNumero(Integer numero) {
-		if (numero > 150 ) {
-			throw new IllegalArgumentException("O numero do endereço não pode ser maior que ");
+		if (numero > 500000 ) {
+			throw new IllegalArgumentException("O numero do endereço não pode ser maior que 500000");
 		} else if (numero <= 16){
 			throw new IllegalArgumentException("O numero do endereço não pode ser menor que ");
 		} else if (numero == 0){

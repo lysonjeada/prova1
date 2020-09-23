@@ -40,8 +40,8 @@ public class EnderecoTest {
 	@Test
 	public void deve_testar_rua() {
 		Endereco endereco = new Endereco();
-		endereco.setLogradouro("R VISCONDE DE ITABORAI");
-		assertEquals("R VISCONDE DE ITABORAI", endereco.getLogradouro());
+		endereco.setLogradouro("Rua");
+		assertEquals("Rua", endereco.getLogradouro());
 
 	}
 
@@ -49,7 +49,7 @@ public class EnderecoTest {
 	public void deve_testar_numero() {
 		Endereco endereco = new Endereco();
 		endereco.setNumero(368);
-		assertEquals("368", endereco.getNumero());
+		assertEquals(368, endereco.getNumero());
 	}
 
 	@Test
@@ -66,8 +66,7 @@ public class EnderecoTest {
 		endereco.setCep("09340070");
 		Endereco endereco2 = new Endereco();
 		endereco2.setCep("09340070");
-		assertThat(endereco.equals(endereco2), is(true));
-		assertTrue(endereco.hashCode() == endereco2.hashCode());
+		assertEquals(endereco, endereco2);
 
 	}
 
@@ -77,8 +76,7 @@ public class EnderecoTest {
 		endereco.setCep("09340070");
 		Endereco endereco2 = new Endereco();
 		endereco2.setCep("09350070");
-		assertThat(endereco.equals(endereco2), is(false));
-		assertFalse(endereco.hashCode() == endereco2.hashCode());
+		assertNotEquals(endereco, endereco2);
 	}
 
 	@Test
@@ -86,8 +84,7 @@ public class EnderecoTest {
 		Endereco endereco = new Endereco();
 		endereco.setCep("09340070");
 		Funcionario funcionario = new Funcionario();
-		assertThat(endereco.equals(funcionario), is(false));
-		assertFalse(endereco.hashCode() == funcionario.hashCode());
+		assertNotEquals(endereco, funcionario);
 
 	}
 
@@ -118,7 +115,7 @@ public class EnderecoTest {
 		assertNotEquals(endereco.toString(), null);
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void deve_testar_cep2() {
 		Endereco endereco = new Endereco();
 		endereco.setCep(null);
@@ -128,7 +125,7 @@ public class EnderecoTest {
 
 	}
 
-	@Test
+	@Test(expected = NullPointerException.class)
 	public void deve_testar_numero2() {
 		Endereco endereco = new Endereco();
 		endereco.setNumero(null);
@@ -145,8 +142,7 @@ public class EnderecoTest {
 		endereco.setNumero(567);
 		Endereco endereco2 = new Endereco();
 		endereco2.setNumero(369);
-		assertThat(endereco.equals(endereco2), is(false));
-		assertFalse(endereco.hashCode() == endereco2.hashCode());
+		assertNotEquals(endereco.getNumero(), endereco2.getNumero());
 
 	}
 

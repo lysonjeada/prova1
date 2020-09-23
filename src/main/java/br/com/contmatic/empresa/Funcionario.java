@@ -1,5 +1,7 @@
 package br.com.contmatic.empresa;
 
+import br.com.contmatic.empresa.util.*;
+
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -27,25 +29,23 @@ public class Funcionario {
 	}
 
 	public void setCpf(String cpf) {
-		if (cpf.length() > 11 || cpf.length() < 11) {
-			throw new IllegalArgumentException("O cpf do funcionario não pode ter mais ou menos que 11 caracteres.");
-		}  else if (cpf.isEmpty()) {
-			throw new IllegalArgumentException("O cpf do funcionario não pode ser vazio");
-		} else if (cpf.equals(null)){
-			throw new IllegalArgumentException("O cpf do funcionario não pode ser nulo");
-		}
+		ValidaCPF.naoNulo(cpf);
+		ValidaCPF.soContemNumeros(cpf);
+		ValidaCPF.validaErroFormadoPorNumerosIguais(cpf);
+		ValidaCPF.tamanhoDoCPF(cpf);
+		ValidaCPF.validarDigitos(cpf);
 		this.cpf = cpf;
 	}
 
 	public void setCargo(String cargo) {
-		if (nome.length() > 50 ) {
+		if (cargo.length() > 50 ) {
 			throw new IllegalArgumentException("O cargo do funcionario não pode ter mais que 50 caracteres.");
-		} else if (nome.length() <= 2){
-			throw new IllegalArgumentException("O cargo do funcionario tem que ter no mínimo 2 caracteres");
-		} else if (nome.isEmpty()) {
+		} else if (cargo.length() < 5){
+			throw new IllegalArgumentException("O cargo do funcionario tem que ter no mínimo 5 caracteres");
+		} else if (cargo.isEmpty()) {
 			throw new IllegalArgumentException("O cargo do funcionario não pode ser vazio");
 		}
-		else if (nome.equals(null)){
+		else if (cargo.equals(null)){
 			throw new IllegalArgumentException("O cargo do funcionario não pode ser nulo");
 		}
 		this.cargo = cargo;

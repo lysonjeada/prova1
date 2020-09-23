@@ -101,7 +101,7 @@ public class EmpresaTest {
 		funcionario.setCpf("22857217811");
 		List<Funcionario> funcionarios2 = new ArrayList<>();
 		funcionarios2.add(funcionario2);
-		assertTrue(funcionarios.hashCode() == funcionarios2.hashCode());
+		assertEquals(funcionario.getCpf(), funcionario2.getCpf());
 	}
 
 	@Test(expected = NullPointerException.class)
@@ -129,9 +129,9 @@ public class EmpresaTest {
 
 	@Test
 	public void deve_testar_cnpj_diferentes() {
-		empresa.setCnpj("26870272000136");
-		Empresa empresa2 = new Empresa("35876272000198");
-		empresa2.setCnpj("35876272000198");
+		empresa.setCnpj("05170388000192");
+		Empresa empresa2 = new Empresa("37279735000106");
+		empresa2.setCnpj("37279735000106");
 		assertNotEquals(empresa.getCnpj(), empresa2.getCnpj());
 
 	}
@@ -140,7 +140,7 @@ public class EmpresaTest {
 	public void deve_testar_empresa_e_funcionario() {
 		empresa.setCnpj("26870272000136");
 		Funcionario funcionario = new Funcionario();
-		funcionario.setCpf("22857217812");
+		funcionario.setCpf("32159761028");
 		assertNotEquals(empresa, funcionario);
 
 	}
@@ -148,8 +148,8 @@ public class EmpresaTest {
 	@Test
 	public void deve_testar_cnpj2() {
 		empresa.setCnpj("26870272000136");
-		Empresa empresa2 = new Empresa("56980272000186");
-		empresa2.setCnpj("56980272000186");
+		Empresa empresa2 = new Empresa("72650549000132");
+		empresa2.setCnpj("72650549000132");
 		assertNotEquals(empresa, empresa2);
 
 	}

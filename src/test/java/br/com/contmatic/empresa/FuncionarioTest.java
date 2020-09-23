@@ -27,20 +27,17 @@ public class FuncionarioTest {
 	@Test
 	public void deve_testar_cpf() {
 		Funcionario funcionario = new Funcionario();
-		funcionario.setCpf("88508287511");
-		assertEquals("88508287511", funcionario.getCpf());
+		funcionario.setCpf("27448545060");
+		assertEquals("27448545060", funcionario.getCpf());
 	}
 
 	@Test
 	public void deve_testar_cargo() {
 		Funcionario funcionario = new Funcionario();
 		funcionario.setCargo("Analista");
-		assertEquals("Analista", funcionario.getCargo());
 		Funcionario funcionario2 = new Funcionario();
 		funcionario2.setCargo("Analista");
-		assertEquals("Analista", funcionario.getCargo());
-		assertThat(funcionario.equals(funcionario2), is(true));
-		assertTrue(funcionario.hashCode() == funcionario2.hashCode());
+		assertEquals(funcionario.getCargo(), funcionario2.getCargo());
 
 	}
 
@@ -66,9 +63,9 @@ public class FuncionarioTest {
 	@Test
 	public void deve_testar_cpf_iguais() {
 		Funcionario funcionario = new Funcionario();
-		funcionario.setCpf("88508287511");
+		funcionario.setCpf("44065933064");
 		Funcionario funcionario1 = new Funcionario();
-		funcionario1.setCpf("88508287511");
+		funcionario1.setCpf("44065933064");
 		assertEquals(funcionario, funcionario1);
 
 	}
@@ -103,20 +100,11 @@ public class FuncionarioTest {
 	}
 
 	@Test
-	public void testar_um_objeto_nulo() {
-		Funcionario funcionario = new Funcionario();
-		Funcionario funcionario1 = new Funcionario();
-		funcionario.setCpf(null);
-		funcionario1.setCpf("12345678");
-		assertNotEquals(funcionario.getCpf(), funcionario1.getCpf());
-	}
-
-	@Test
 	public void testar_cpfs_diferentes() {
 		Funcionario funcionario = new Funcionario();
 		Funcionario funcionario1 = new Funcionario();
-		funcionario.setCpf("88508287511");
-		funcionario1.setCpf("88508287500");
+		funcionario.setCpf("44065933064");
+		funcionario1.setCpf("27448545060");
 		assertNotEquals(funcionario.getCpf(), funcionario1.getCpf());
 	}
 
@@ -125,7 +113,6 @@ public class FuncionarioTest {
 		Funcionario funcionario = new Funcionario();
 		Empresa empresa = new Empresa("42771949000135");
 		assertNotEquals(empresa.getClass(), funcionario.getClass());
-		assertThat(funcionario.equals(empresa), is(false));
 
 	}
 }

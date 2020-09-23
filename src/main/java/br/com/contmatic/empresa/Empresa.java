@@ -1,5 +1,7 @@
 package br.com.contmatic.empresa;
 
+import br.com.contmatic.empresa.util.*;
+
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -160,13 +162,11 @@ public class Empresa {
 	}
 
 	public void setCnpj(String cnpj) {
-		if (cnpj.length() > 14 || cnpj.length() < 14) {
-			throw new IllegalArgumentException("CNPJ inválido, precisa conter 14 caracteres");
-		} else if (cnpj.isEmpty()) {
-			throw new IllegalArgumentException("O cnpj da empresa não pode ser vazio");
-		} else if (cnpj.equals(null)) {
-			throw new IllegalArgumentException("O cnpj da empresa não pode ser nulo");
-		}
+		ValidaCNPJ.naoNulo(cnpj);
+		ValidaCNPJ.soContemNumeros(cnpj);
+		ValidaCNPJ.tamanhoDoCNPJ(cnpj);
+		ValidaCNPJ.recebeErroFormadoPorNumerosIguais(cnpj);
+		ValidaCNPJ.validaDigitos(cnpj);
 		this.cnpj = cnpj;
 	}
 
