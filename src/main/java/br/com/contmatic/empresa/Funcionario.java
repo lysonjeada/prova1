@@ -1,5 +1,6 @@
 package br.com.contmatic.empresa;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -19,18 +20,18 @@ public class Funcionario {
 	
 	private String cargo;
 	
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 
 	public String getCpf() {
 		return cpf;
 	}
 
 	public void setCpf(String cpf) {
-		if (nome.length() > 11 || nome.length() < 11) {
+		if (cpf.length() > 11 || cpf.length() < 11) {
 			throw new IllegalArgumentException("O cpf do funcionario não pode ter mais ou menos que 11 caracteres.");
-		}  else if (nome.isEmpty()) {
+		}  else if (cpf.isEmpty()) {
 			throw new IllegalArgumentException("O cpf do funcionario não pode ser vazio");
-		} else if (nome.equals(null)){
+		} else if (cpf.equals(null)){
 			throw new IllegalArgumentException("O cpf do funcionario não pode ser nulo");
 		}
 		this.cpf = cpf;
@@ -84,16 +85,15 @@ public class Funcionario {
 		} 
 		this.idade = idade;
 	}
-
-
-
 	
-
-	public Date getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
+		if (dataNascimento.isAfter(LocalDate.now())) {
+			throw new IllegalArgumentException("A data de criação da empresa não pode ser futura.");
+		} 
 		this.dataNascimento = dataNascimento;
 	}
 

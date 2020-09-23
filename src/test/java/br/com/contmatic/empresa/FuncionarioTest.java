@@ -2,6 +2,7 @@ package br.com.contmatic.empresa;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -44,19 +45,11 @@ public class FuncionarioTest {
 	}
 
 	@Test
-	public void testar_outro_cpf_() {
-		Funcionario funcionario = new Funcionario();
-		funcionario.setCpf("654321");
-		assertNotEquals(funcionario.getCpf(), "123456");
-
-	}
-
-	@Test
 	public void deve_testar_empresa_e_funcionario() {
 		Empresa empresa = new Empresa("42771949000135");
-		empresa.setCnpj("12345");
+		empresa.setCnpj("42771949000135");
 		Funcionario funcionario = new Funcionario();
-		assertThat(empresa.equals(funcionario), is(false));
+		assertNotEquals(empresa, funcionario);
 		assertFalse(empresa.hashCode() == funcionario.hashCode());
 
 	}
@@ -76,8 +69,7 @@ public class FuncionarioTest {
 		funcionario.setCpf("88508287511");
 		Funcionario funcionario1 = new Funcionario();
 		funcionario1.setCpf("88508287511");
-		assertThat(funcionario.equals(funcionario1), is(true));
-		assertTrue(funcionario.hashCode() == funcionario1.hashCode());
+		assertEquals(funcionario, funcionario1);
 
 	}
 
@@ -102,12 +94,12 @@ public class FuncionarioTest {
 	}
 
 	@Test
-	public void testar_dois_objetos_nulo() {
+	public void testar_dois_objetos_com_cpf_nulo() {
 		Funcionario funcionario = new Funcionario();
 		Funcionario funcionario1 = new Funcionario();
 		funcionario.setCpf(null);
 		funcionario1.setCpf(null);
-		assertEquals(funcionario, funcionario1);
+		assertEquals(funcionario.getCpf(), funcionario1.getCpf());
 	}
 
 	@Test
@@ -116,16 +108,16 @@ public class FuncionarioTest {
 		Funcionario funcionario1 = new Funcionario();
 		funcionario.setCpf(null);
 		funcionario1.setCpf("12345678");
-		assertNotEquals(funcionario, funcionario1);
+		assertNotEquals(funcionario.getCpf(), funcionario1.getCpf());
 	}
 
 	@Test
 	public void testar_cpfs_diferentes() {
 		Funcionario funcionario = new Funcionario();
 		Funcionario funcionario1 = new Funcionario();
-		funcionario.setCpf("8743212");
-		funcionario1.setCpf("12345678");
-		assertNotEquals(funcionario, funcionario1);
+		funcionario.setCpf("88508287511");
+		funcionario1.setCpf("88508287500");
+		assertNotEquals(funcionario.getCpf(), funcionario1.getCpf());
 	}
 
 	@Test

@@ -1,6 +1,8 @@
 package br.com.contmatic.empresa;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -8,12 +10,13 @@ import java.time.format.ResolverStyle;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import br.com.contmatic.empresa.validadores.*;
+import br.com.contmatic.empresa.util.*;
 
 public class Empresa {
 	
@@ -29,7 +32,7 @@ public class Empresa {
 	
 	private String situacaoCadastral;
 	
-	private Date dataDeCriacao;
+	private LocalDate dataDeCriacao;
 	
 	private String telefone;
 	
@@ -69,11 +72,11 @@ public class Empresa {
 	}
 
 	public void setSituacaoCadastral(String situacaoCadastral) {
-		if (nome.length() > 9 ) {
+		if (situacaoCadastral.length() > 9 ) {
 			throw new IllegalArgumentException("A situação cadastral da empresa não pode ter mais que 9 caracteres.");
-		} else if (nome.equals(null)){
+		} else if (situacaoCadastral.equals(null)){
 			throw new IllegalArgumentException("A situação cadastral da empresa não pode ser nulo");
-		} else if (nome.isEmpty()) {
+		} else if (situacaoCadastral.isEmpty()) {
 			throw new IllegalArgumentException("A situaçaõ cadastral da empresa não pode ser vazio");
 		}
 		this.situacaoCadastral = situacaoCadastral;
@@ -176,12 +179,14 @@ public class Empresa {
 	}
 
 	public void setEmail(String email) {
-		if (email.length() > 9 ) {
-			throw new IllegalArgumentException("O telefone da empresa não pode ter mais que 9 caracteres.");
-		} else if (email.length() < 0){
-			throw new IllegalArgumentException("O telefone da empresa não pode ter menos de 0 caracteres");
+		if (email.length() > 50 ) {
+			throw new IllegalArgumentException("O email da empresa não pode ter mais que 50 caracteres.");
+		} else if (email.length() < 10){
+			throw new IllegalArgumentException("O email da empresa não pode ter menos de 10 caracteres");
 		} else if (email.isEmpty()) {
 			throw new IllegalArgumentException("O telefone da empresa não pode ser nulo");
+		} else if (email.equals(null)) {
+			throw new IllegalArgumentException("O email da empresa não pode ser nulo");
 		}
 		this.email = email;
 	}
@@ -203,17 +208,14 @@ public class Empresa {
 		this.situacaoEspecial = situacaoEspecial;
 	}
 	
-	public Date getDataDeCriacao() {
+	public LocalDate getDataDeCriacao() {
 		return dataDeCriacao;
 	}
 
-	public void setDataDeCriacao(Date dataDeCriacao) {
-		Calendar dataAtual = Calendar.getInstance();
-		Integer ano = dataAtual .get(Calendar.YEAR);
-		Integer mes = dataAtual .get(Calendar.MONTH);
-		Integer diaDoMes = dataAtual .get(Calendar.DAY_OF_MONTH);
-		
-		
+	public void setDataDeCriacao(LocalDate dataDeCriacao) {
+		if (dataDeCriacao.isAfter(LocalDate.now())) {
+			throw new IllegalArgumentException("A data de criação da empresa não pode ser futura.");
+		} 
 		this.dataDeCriacao = dataDeCriacao;
 	}
 

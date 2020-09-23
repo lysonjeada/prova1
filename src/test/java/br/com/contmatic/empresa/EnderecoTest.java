@@ -124,8 +124,7 @@ public class EnderecoTest {
 		endereco.setCep(null);
 		Endereco endereco2 = new Endereco();
 		endereco2.setCep("09340070");
-		assertThat(endereco.equals(endereco2), is(false));
-		assertFalse(endereco.hashCode() == endereco2.hashCode());
+		assertNotEquals(endereco, endereco2);
 
 	}
 
