@@ -26,11 +26,11 @@ public class Endereco {
 		if (cep.length() > 9 ) {
 			throw new IllegalArgumentException("O logradouro do endereço não pode ter mais que 9 caracteres.");
 		} else if (cep.length() < 0){
-			throw new IllegalArgumentException("O logradouro do endereço não pode ter menos de 0 caracteres");
+			throw new IllegalArgumentException("O logradouro do endereço não pode ter menos de 0 caracteres.");
 		} else if (cep.isEmpty()) {
-			throw new IllegalArgumentException("O logradouro do endereço não pode ser vazio");
+			throw new IllegalArgumentException("O logradouro do endereço não pode ser vazio.");
 		} else if (cep.equals(null)) {
-			throw new IllegalArgumentException("O logradouro do endereço não pode ser nulo");
+			throw new IllegalArgumentException("O logradouro do endereço não pode ser nulo.");
 		}
 		this.cep = cep;
 	}
@@ -43,11 +43,11 @@ public class Endereco {
 		if (complementoDoLogradouro.length() > 50 ) {
 			throw new IllegalArgumentException("O complemento do logradouro do endereço não pode ter mais que 50 caracteres.");
 		} else if (complementoDoLogradouro.length() < 0){
-			throw new IllegalArgumentException("O complemento do logradouro do endereço não pode ter menos de 0 caracteres");
+			throw new IllegalArgumentException("O complemento do logradouro do endereço não pode ter menos de 0 caracteres.");
 		} else if (complementoDoLogradouro.isEmpty()) {
-			throw new IllegalArgumentException("O complemento do logradouro do endereço não pode ser vazio");
+			throw new IllegalArgumentException("O complemento do logradouro do endereço não pode ser vazio.");
 		} else if (complementoDoLogradouro.equals(null)) {
-			throw new IllegalArgumentException("O complemento do logradouro do endereço não pode ser nulo");
+			throw new IllegalArgumentException("O complemento do logradouro do endereço não pode ser nulo.");
 		}
 		this.complementoDoLogradouro = complementoDoLogradouro;
 	}
@@ -56,11 +56,11 @@ public class Endereco {
 		if (logradouro.length() > 9 ) {
 			throw new IllegalArgumentException("O logradouro do endereço não pode ter mais que 9 caracteres.");
 		} else if (logradouro.length() < 0){
-			throw new IllegalArgumentException("O logradouro do endereço não pode ter menos de 0 caracteres");
+			throw new IllegalArgumentException("O logradouro do endereço não pode ter menos de 0 caracteres.");
 		} else if (logradouro.isEmpty()) {
-			throw new IllegalArgumentException("O logradouro do endereço não pode ser vazio");
+			throw new IllegalArgumentException("O logradouro do endereço não pode ser vazio.");
 		} else if (logradouro.equals(null)) {
-			throw new IllegalArgumentException("O logradouro do endereço não pode ser nulo");
+			throw new IllegalArgumentException("O logradouro do endereço não pode ser nulo.");
 		}
 		return logradouro;
 	}
@@ -76,10 +76,10 @@ public class Endereco {
 	public void setNumero(Integer numero) {
 		if (numero > 500000 ) {
 			throw new IllegalArgumentException("O numero do endereço não pode ser maior que 500000");
-		} else if (numero <= 16){
-			throw new IllegalArgumentException("O numero do endereço não pode ser menor que ");
+		} else if (numero <= 0){
+			throw new IllegalArgumentException("O numero do endereço não pode ser menor que 0.");
 		} else if (numero == 0){
-			throw new IllegalArgumentException("O numero do endereço não pode ser nulo");
+			throw new IllegalArgumentException("O numero do endereço não pode ser nulo.");
 		}
 		this.numero = numero;
 	}
@@ -92,11 +92,11 @@ public class Endereco {
 		if (cidade.length() > 9 ) {
 			throw new IllegalArgumentException("A cidade do endereço não pode ter mais que 9 caracteres.");
 		} else if (cidade.length() < 0){
-			throw new IllegalArgumentException("A cidade do endereço não pode ter menos de 0 caracteres");
+			throw new IllegalArgumentException("A cidade do endereço não pode ter menos de 0 caracteres.");
 		} else if (cidade.isEmpty()) {
-			throw new IllegalArgumentException("A cidade do endereço não pode ser vazio");
+			throw new IllegalArgumentException("A cidade do endereço não pode ser vazio.");
 		} else if (cidade.equals(null)) {
-			throw new IllegalArgumentException("A cidade do endereço não pode ser nulo");
+			throw new IllegalArgumentException("A cidade do endereço não pode ser nulo.");
 		}
 		this.cidade = cidade;
 	}
@@ -109,9 +109,9 @@ public class Endereco {
 		if (pais.length() > 9 ) {
 			throw new IllegalArgumentException("O país do endereço não pode ter mais que 9 caracteres.");
 		} else if (pais.length() < 0){
-			throw new IllegalArgumentException("O país do endereço não pode ter menos de 0 caracteres");
+			throw new IllegalArgumentException("O país do endereço não pode ter menos de 0 caracteres.");
 		} else if (pais.isEmpty()) {
-			throw new IllegalArgumentException("O país do endereço não pode ser vazio");
+			throw new IllegalArgumentException("O país do endereço não pode ser vazio.");
 		} else if (pais.equals(null)) {
 			throw new IllegalArgumentException("O país do endereço não pode ser nulo");
 		}

@@ -89,21 +89,6 @@ public class EmpresaTest {
 
 	}
 
-	@Test
-	public void deve_testar_listaDeFuncionarios() {
-		Funcionario funcionario = new Funcionario();
-		funcionario.getCpf();
-		funcionario.setCpf("22857217811");
-		List<Funcionario> funcionarios = new ArrayList<>();
-		funcionarios.add(funcionario);
-		Funcionario funcionario2 = new Funcionario();
-		funcionario2.getCpf();
-		funcionario.setCpf("22857217811");
-		List<Funcionario> funcionarios2 = new ArrayList<>();
-		funcionarios2.add(funcionario2);
-		assertEquals(funcionario.getCpf(), funcionario2.getCpf());
-	}
-
 	@Test(expected = NullPointerException.class)
 	public void deve_acontecer_NullPointer() {
 		empresa = null;

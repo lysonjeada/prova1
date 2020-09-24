@@ -58,11 +58,11 @@ public class Empresa {
 		if (nomeFantasia.length() > 50 ) {
 			throw new IllegalArgumentException("O nome fantasia da empresa não pode ter mais que 50 caracteres.");
 		} else if (nomeFantasia.length() < 0){
-			throw new IllegalArgumentException("O nome fantasia da empresa não pode ter menos de 0 caracteres");
+			throw new IllegalArgumentException("O nome fantasia da empresa não pode ter menos de 0 caracteres.");
 		} else if (nomeFantasia.isEmpty()) {
-			throw new IllegalArgumentException("O nome fantasia da empresa não pode ser nulo");
+			throw new IllegalArgumentException("O nome fantasia da empresa não pode ser nulo.");
 		} else if (nomeFantasia.equals(null))
-			throw new IllegalArgumentException("A situaçaõ cadastral da empresa não pode ser nula");
+			throw new IllegalArgumentException("A situaçaõ cadastral da empresa não pode ser nula.");
 		{
 			
 		}
@@ -77,9 +77,9 @@ public class Empresa {
 		if (situacaoCadastral.length() > 9 ) {
 			throw new IllegalArgumentException("A situação cadastral da empresa não pode ter mais que 9 caracteres.");
 		} else if (situacaoCadastral.equals(null)){
-			throw new IllegalArgumentException("A situação cadastral da empresa não pode ser nulo");
+			throw new IllegalArgumentException("A situação cadastral da empresa não pode ser nulo.");
 		} else if (situacaoCadastral.isEmpty()) {
-			throw new IllegalArgumentException("A situaçaõ cadastral da empresa não pode ser vazio");
+			throw new IllegalArgumentException("A situaçaõ cadastral da empresa não pode ser vazio.");
 		}
 		this.situacaoCadastral = situacaoCadastral;
 	}
@@ -94,11 +94,11 @@ public class Empresa {
 		if (telefone.length() > 9) {
 			throw new IllegalArgumentException("O telefone da empresa não pode ter mais que 9 caracteres.");
 		} else if (telefone.length() < 0) {
-			throw new IllegalArgumentException("O telefone da empresa não pode ter menos de 0 caracteres");
+			throw new IllegalArgumentException("O telefone da empresa não pode ter menos de 0 caracteres.");
 		} else if (telefone.isEmpty()) {
-			throw new IllegalArgumentException("O telefone da empresa não pode ser vazio");
+			throw new IllegalArgumentException("O telefone da empresa não pode ser vazio.");
 		} else if (telefone.equals(null)) {
-			throw new IllegalArgumentException("O telefone da empresa não pode ser nulo");
+			throw new IllegalArgumentException("O telefone da empresa não pode ser nulo.");
 		}
 		this.telefone = telefone;
 	}
@@ -111,12 +111,12 @@ public class Empresa {
 		if (porteDaEmpresa.length() > 7 ) {
 			throw new IllegalArgumentException("O porte da empresa não pode ter mais que 7 caracteres.");
 		} else if (porteDaEmpresa.length() < 0){
-			throw new IllegalArgumentException("O porte da empresa não pode ter menos de 0 caracteres");
+			throw new IllegalArgumentException("O porte da empresa não pode ter menos de 0 caracteres.");
 		} else if (porteDaEmpresa.isEmpty()) {
-			throw new IllegalArgumentException("O porte da empresa não pode ser vazio");
+			throw new IllegalArgumentException("O porte da empresa não pode ser vazio.");
 		}
 		else if (porteDaEmpresa.equals(null)){
-			throw new IllegalArgumentException("O porte da da empresa não pode ser nulo");
+			throw new IllegalArgumentException("O porte da da empresa não pode ser nulo.");
 		}
 		this.porte = porteDaEmpresa;
 	}
@@ -129,12 +129,12 @@ public class Empresa {
 		if (tipoDeEmpresa.length() > 9 ) {
 			throw new IllegalArgumentException("O tipo da empresa não pode ter mais que 9 caracteres.");
 		} else if (tipoDeEmpresa.length() < 0){
-			throw new IllegalArgumentException("O tipo da empresa não pode ter menos de 0 caracteres");
+			throw new IllegalArgumentException("O tipo da empresa não pode ter menos de 0 caracteres.");
 		} else if (tipoDeEmpresa.isEmpty()) {
-			throw new IllegalArgumentException("O tipo da empresa não pode ser vazio");
+			throw new IllegalArgumentException("O tipo da empresa não pode ser vazio.");
 		}
 		else if (tipoDeEmpresa.equals(null)){
-			throw new IllegalArgumentException("O tipo da empresa não pode ser nulo");
+			throw new IllegalArgumentException("O tipo da empresa não pode ser nulo.");
 		}
 		this.tipo = tipoDeEmpresa;
 	}
@@ -147,12 +147,12 @@ public class Empresa {
 		if (nome.length() > 9 ) {
 			throw new IllegalArgumentException("O nome da empresa não pode ter mais que 9 caracteres.");
 		} else if (nome.length() < 0){
-			throw new IllegalArgumentException("O nome da empresa não pode ter menos de 0 caracteres");
+			throw new IllegalArgumentException("O nome da empresa não pode ter menos de 0 caracteres.");
 		} else if (nome.isEmpty()) {
-			throw new IllegalArgumentException("O nome da empresa não pode ser vazio");
+			throw new IllegalArgumentException("O nome da empresa não pode ser vazio.");
 		}
 		else if (nome.equals(null)){
-			throw new IllegalArgumentException("O nome da empresa não pode ser nulo");
+			throw new IllegalArgumentException("O nome da empresa não pode ser nulo.");
 		}
 		this.nome = nome;
 	}
@@ -182,11 +182,11 @@ public class Empresa {
 		if (email.length() > 50 ) {
 			throw new IllegalArgumentException("O email da empresa não pode ter mais que 50 caracteres.");
 		} else if (email.length() < 10){
-			throw new IllegalArgumentException("O email da empresa não pode ter menos de 10 caracteres");
+			throw new IllegalArgumentException("O email da empresa não pode ter menos de 10 caracteres.");
 		} else if (email.isEmpty()) {
-			throw new IllegalArgumentException("O telefone da empresa não pode ser nulo");
+			throw new IllegalArgumentException("O telefone da empresa não pode ser nulo.");
 		} else if (email.equals(null)) {
-			throw new IllegalArgumentException("O email da empresa não pode ser nulo");
+			throw new IllegalArgumentException("O email da empresa não pode ser nulo.");
 		}
 		this.email = email;
 	}
@@ -199,11 +199,11 @@ public class Empresa {
 		if (situacaoEspecial.length() > 9 ) {
 			throw new IllegalArgumentException("A situação especial da empresa não pode ter mais que 9 caracteres.");
 		} else if (situacaoEspecial.length() < 0){
-			throw new IllegalArgumentException("A situação especial da empresa não pode ter menos de 0 caracteres");
+			throw new IllegalArgumentException("A situação especial da empresa não pode ter menos de 0 caracteres.");
 		} else if (situacaoEspecial.isEmpty()) {
-			throw new IllegalArgumentException("A situação especial da empresa não pode ser vazio");
+			throw new IllegalArgumentException("A situação especial da empresa não pode ser vazio.");
 		} else if (situacaoEspecial.equals(null)) {
-			throw new IllegalArgumentException("A situação especial da empresa não pode ser nulo");
+			throw new IllegalArgumentException("A situação especial da empresa não pode ser nulo.");
 		}
 		this.situacaoEspecial = situacaoEspecial;
 	}
@@ -215,7 +215,9 @@ public class Empresa {
 	public void setDataDeCriacao(LocalDate dataDeCriacao) {
 		if (dataDeCriacao.isAfter(LocalDate.now())) {
 			throw new IllegalArgumentException("A data de criação da empresa não pode ser futura.");
-		} 
+		} else if (dataDeCriacao.equals(null)) {
+			throw new IllegalArgumentException("A data de criação da empresa não pode ser nula.");
+		}
 		this.dataDeCriacao = dataDeCriacao;
 	}
 
@@ -225,17 +227,19 @@ public class Empresa {
 
 	public void setEnderecos(List <Endereco> enderecos) {
 		if (enderecos.equals(null)) {
-			throw new IllegalArgumentException("A lista de endereços da empresa não pode ser nula");
+			throw new IllegalArgumentException("A lista de endereços da empresa não pode ser nula.");
 		} else if (enderecos.isEmpty()) {
-			throw new IllegalArgumentException("A lista de endereços da empresa não pode ser vazia");
+			throw new IllegalArgumentException("A lista de endereços da empresa não pode ser vazia.");
 		}
 	}
 
 	public void setFuncionarios(List<Funcionario> funcionarios) {
 		if (funcionarios.equals(null)) {
-			throw new IllegalArgumentException("A lista de funcionarios da empresa não pode ser nula");
+			throw new IllegalArgumentException("A lista de funcionarios da empresa não pode ser nula.");
 		} else if (funcionarios.isEmpty()) {
-			throw new IllegalArgumentException("A lista de funcionarios da empresa não pode ser vazia");
+			throw new IllegalArgumentException("A lista de funcionarios da empresa não pode ser vazia.");
+		} else if (funcionarios.size() < 2) {
+			throw new IllegalArgumentException("A lista de funcionarios da empresa não pode ter menos que 2 funcionários.");
 		}
 		this.funcionarios = funcionarios;
 	}

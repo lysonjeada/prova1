@@ -41,12 +41,12 @@ public class Funcionario {
 		if (cargo.length() > 50 ) {
 			throw new IllegalArgumentException("O cargo do funcionario não pode ter mais que 50 caracteres.");
 		} else if (cargo.length() < 5){
-			throw new IllegalArgumentException("O cargo do funcionario tem que ter no mínimo 5 caracteres");
+			throw new IllegalArgumentException("O cargo do funcionario tem que ter no mínimo 5 caracteres.");
 		} else if (cargo.isEmpty()) {
-			throw new IllegalArgumentException("O cargo do funcionario não pode ser vazio");
+			throw new IllegalArgumentException("O cargo do funcionario não pode ser vazio.");
 		}
 		else if (cargo.equals(null)){
-			throw new IllegalArgumentException("O cargo do funcionario não pode ser nulo");
+			throw new IllegalArgumentException("O cargo do funcionario não pode ser nulo.");
 		}
 		this.cargo = cargo;
 	}
@@ -63,12 +63,12 @@ public class Funcionario {
 		if (nome.length() > 197 ) {
 			throw new IllegalArgumentException("O nome do funcionario não pode ter mais que 197 caracteres.");
 		} else if (nome.length() <= 2){
-			throw new IllegalArgumentException("O nome do funcionario tem que ter no mínimo 2 caracteres");
+			throw new IllegalArgumentException("O nome do funcionario tem que ter no mínimo 2 caracteres.");
 		} else if (nome.isEmpty()) {
-			throw new IllegalArgumentException("O nome do funcionario não pode ser vazio");
+			throw new IllegalArgumentException("O nome do funcionario não pode ser vazio.");
 		}
 		else if (nome.equals(null)){
-			throw new IllegalArgumentException("O nome do funcionario não pode ser nulo");
+			throw new IllegalArgumentException("O nome do funcionario não pode ser nulo.");
 		}
 		this.nome = nome;
 	}
@@ -81,7 +81,7 @@ public class Funcionario {
 		if (idade > 150 ) {
 			throw new IllegalArgumentException("A idade não pode ser mais que 150.");
 		} else if (idade <= 16){
-			throw new IllegalArgumentException("A idade do funcionario tem que ser no minimo 16");
+			throw new IllegalArgumentException("A idade do funcionario tem que ser no minimo 16.");
 		} 
 		this.idade = idade;
 	}
@@ -93,7 +93,9 @@ public class Funcionario {
 	public void setDataNascimento(LocalDate dataNascimento) {
 		if (dataNascimento.isAfter(LocalDate.now())) {
 			throw new IllegalArgumentException("A data de criação da empresa não pode ser futura.");
-		} 
+		}  else if (dataNascimento.equals(null)) {
+			throw new IllegalArgumentException("A data de nascimento do funcionário não pode ser nulo.");
+		}
 		this.dataNascimento = dataNascimento;
 	}
 
